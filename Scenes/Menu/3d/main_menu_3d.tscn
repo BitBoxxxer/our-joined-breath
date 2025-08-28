@@ -1,13 +1,20 @@
-[gd_scene load_steps=12 format=3 uid="uid://dyhxim30jvy3c"]
+[gd_scene load_steps=14 format=3 uid="uid://dyhxim30jvy3c"]
 
 [ext_resource type="PackedScene" uid="uid://y0nvi58fm1dd" path="res://_Ress/3d/table/old_metal_table_low_poly.glb" id="1_6uh6v"]
 [ext_resource type="Script" uid="uid://c02xgbvb4l5sf" path="res://Scenes/Menu/3d/main_menu_3d.gd" id="1_s2ngy"]
 [ext_resource type="PackedScene" uid="uid://xp6wlhqb0ym8" path="res://_Ress/3d/cube/transparent_cube.glb" id="3_s2ngy"]
+[ext_resource type="Material" uid="uid://jckv51l3x6k1" path="res://_Ress/3d/effects/light_monitor_menu.tres" id="4_gr1bq"]
 
 [sub_resource type="Environment" id="Environment_h3ldb"]
 background_mode = 1
 ambient_light_energy = 0.01
-tonemap_exposure = 0.5
+tonemap_mode = 4
+tonemap_exposure = 0.3
+glow_enabled = true
+glow_normalized = true
+glow_strength = 1.33
+glow_bloom = 0.17
+glow_blend_mode = 1
 
 [sub_resource type="Animation" id="Animation_o7f6b"]
 resource_name = "1"
@@ -258,6 +265,8 @@ _data = {
 &"on_table": SubResource("Animation_h3ldb")
 }
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_6rkge"]
+
 [node name="Menu" type="Node3D"]
 script = ExtResource("1_s2ngy")
 
@@ -301,23 +310,45 @@ spot_angle_attenuation = 0.0412346
 [node name="models" type="Node" parent="."]
 
 [node name="table" parent="models" instance=ExtResource("1_6uh6v")]
-transform = Transform3D(0.0111314, 0, -1.95552, 0, 1, 0, 1.83797, 0, 0.0118433, -0.2537, 0, -2.31631)
+transform = Transform3D(0.0111314, 0, -1.95552, 0, 1, 0, 1.83797, 0, 0.0118433, -0.2537, -0.0434501, -2.31631)
 
 [node name="monitor1" parent="models" instance=ExtResource("3_s2ngy")]
 transform = Transform3D(0.548091, 0, 0.0187706, 0, 0.796747, 0, -0.151474, 0, 0.0679194, -1.87325, 1.22888, -2.71653)
 
-[node name="Label3D" type="Label3D" parent="models/monitor1"]
+[node name="light_chM" type="MeshInstance3D" parent="models/monitor1"]
+transform = Transform3D(1, 0, -1.11022e-16, 0, -4.37114e-08, -1, -2.38419e-07, 1, -4.37114e-08, -0.0394864, 0, 1.15298)
+material_override = ExtResource("4_gr1bq")
+mesh = SubResource("PlaneMesh_6rkge")
+skeleton = NodePath("../../..")
+
+[node name="Label3D" type="Label3D" parent="models/monitor1/light_chM"]
+transform = Transform3D(1, 1.99938e-16, 3.72529e-09, 2.38419e-07, -4.37114e-08, 1, -1.42109e-14, -1, -4.37114e-08, 0.140841, 0.259117, -1.19209e-07)
 text = "Monitore #1"
 
 [node name="monitor2" parent="models" instance=ExtResource("3_s2ngy")]
 transform = Transform3D(-0.00165599, -0.796743, 8.49682e-06, 0.568148, -0.00232228, -0.00291514, 0.0235245, 0, 0.0704051, -0.332172, 1.15813, -2.71653)
+visible = false
 
-[node name="Label3D" type="Label3D" parent="models/monitor2"]
-transform = Transform3D(1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 0, 0, 1, 0, 0, 0)
+[node name="light_chM" type="MeshInstance3D" parent="models/monitor2"]
+transform = Transform3D(1, 0, -1.11022e-16, 0, -4.37114e-08, -1, -2.38419e-07, 1, -4.37114e-08, -0.0394864, 0, 1.15298)
+material_override = ExtResource("4_gr1bq")
+mesh = SubResource("PlaneMesh_6rkge")
+skeleton = NodePath("../../..")
+
+[node name="Label3D" type="Label3D" parent="models/monitor2/light_chM"]
+transform = Transform3D(1.19249e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, -1.19249e-08, -5.21253e-16, 0.140841, 0.259117, -1.19209e-07)
 text = "Monitore #2"
 
 [node name="monitor3" parent="models" instance=ExtResource("3_s2ngy")]
 transform = Transform3D(0.492057, 0, -0.0353179, 0, 0.796747, 0, 0.285006, 0, 0.0609756, 1.10113, 1.51504, -2.43328)
+visible = false
 
-[node name="Label3D" type="Label3D" parent="models/monitor3"]
+[node name="light_chM" type="MeshInstance3D" parent="models/monitor3"]
+transform = Transform3D(1, 0, -1.11022e-16, 0, -4.37114e-08, -1, -2.38419e-07, 1, -4.37114e-08, -0.0394864, 0, 1.15298)
+material_override = ExtResource("4_gr1bq")
+mesh = SubResource("PlaneMesh_6rkge")
+skeleton = NodePath("../../..")
+
+[node name="Label3D" type="Label3D" parent="models/monitor3/light_chM"]
+transform = Transform3D(1, 1.99938e-16, 3.72529e-09, 2.38419e-07, -4.37114e-08, 1, -1.42109e-14, -1, -4.37114e-08, 0.140841, 0.259117, -1.19209e-07)
 text = "Monitore #3"

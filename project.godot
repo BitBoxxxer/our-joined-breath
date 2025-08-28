@@ -32,7 +32,8 @@ folder_colors={
 "res://Scripts/": "orange",
 "res://Sound/": "blue",
 "res://Sprites/": "yellow",
-"res://_Ress/": "green"
+"res://_Ress/": "green",
+"res://_Ress/3d/effects/": "purple"
 }
 
 [rendering]

@@ -1,0 +1,5 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://jckv51l3x6k1"]
+
+[resource]
+emission_enabled = true
+emission = Color(0.909362, 0.789933, 0.732323, 1)
