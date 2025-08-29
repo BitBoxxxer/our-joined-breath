@@ -1,0 +1,108 @@
+[gd_scene load_steps=3 format=3 uid="uid://04cr15ampmdd"]
+
+[ext_resource type="Script" uid="uid://bfnou4yfp0xp" path="res://Scripts/Menu/HUD/main_menu_hud.gd" id="1_b0x6x"]
+
+[sub_resource type="FontFile" id="FontFile_4kewq"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[node name="MainMenuHud" type="CanvasLayer"]
+script = ExtResource("1_b0x6x")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainVCBTT" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -277.0
+offset_right = 458.0
+offset_bottom = 319.0
+grow_vertical = 2
+theme_override_constants/separation = 300
+
+[node name="VBoxCont1" type="VBoxContainer" parent="Control/MainVCBTT"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="StartButt" type="Button" parent="Control/MainVCBTT/VBoxCont1"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_4kewq")
+theme_override_font_sizes/font_size = 30
+text = "Start"
+
+[node name="OptionsButt" type="Button" parent="Control/MainVCBTT/VBoxCont1"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_4kewq")
+theme_override_font_sizes/font_size = 30
+text = "Options"
+
+[node name="AchievementsButt" type="Button" parent="Control/MainVCBTT/VBoxCont1"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_4kewq")
+theme_override_font_sizes/font_size = 30
+text = "Achievement"
+
+[node name="AuthorsButt" type="Button" parent="Control/MainVCBTT/VBoxCont1"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_4kewq")
+theme_override_font_sizes/font_size = 30
+text = "Author"
+
+[node name="VBoxCont2" type="VBoxContainer" parent="Control/MainVCBTT"]
+layout_mode = 2
+alignment = 1
+
+[node name="ExitButt" type="Button" parent="Control/MainVCBTT/VBoxCont2"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_4kewq")
+theme_override_font_sizes/font_size = 30
+text = "Exit"
+
+[node name="Container" type="CenterContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -103.0
+offset_top = 476.0
+offset_right = 104.0
+offset_bottom = -91.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Container"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[pulse freq=1.0 color=#ffffff40 ease=-2.0] 
+Press ANY Button For Start"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Control/MainVCBTT/VBoxCont1/StartButt" to="." method="_on_start_butt_pressed"]
+[connection signal="pressed" from="Control/MainVCBTT/VBoxCont1/OptionsButt" to="." method="_on_options_butt_pressed"]
+[connection signal="pressed" from="Control/MainVCBTT/VBoxCont1/AchievementsButt" to="." method="_on_achievements_butt_pressed"]
+[connection signal="pressed" from="Control/MainVCBTT/VBoxCont1/AuthorsButt" to="." method="_on_authors_butt_pressed"]
+[connection signal="pressed" from="Control/MainVCBTT/VBoxCont2/ExitButt" to="." method="_on_exit_butt_pressed"]

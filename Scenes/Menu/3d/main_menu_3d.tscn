@@ -1,20 +1,72 @@
-[gd_scene load_steps=14 format=3 uid="uid://dyhxim30jvy3c"]
+[gd_scene load_steps=17 format=3 uid="uid://dyhxim30jvy3c"]
 
 [ext_resource type="PackedScene" uid="uid://y0nvi58fm1dd" path="res://_Ress/3d/table/old_metal_table_low_poly.glb" id="1_6uh6v"]
-[ext_resource type="Script" uid="uid://c02xgbvb4l5sf" path="res://Scenes/Menu/3d/main_menu_3d.gd" id="1_s2ngy"]
+[ext_resource type="Script" uid="uid://c02xgbvb4l5sf" path="res://Scripts/Menu/main_menu_3d.gd" id="1_s2ngy"]
 [ext_resource type="PackedScene" uid="uid://xp6wlhqb0ym8" path="res://_Ress/3d/cube/transparent_cube.glb" id="3_s2ngy"]
 [ext_resource type="Material" uid="uid://jckv51l3x6k1" path="res://_Ress/3d/effects/light_monitor_menu.tres" id="4_gr1bq"]
+[ext_resource type="PackedScene" uid="uid://04cr15ampmdd" path="res://Scenes/HUD/Main_Menu_HUD.tscn" id="5_6rkge"]
 
 [sub_resource type="Environment" id="Environment_h3ldb"]
 background_mode = 1
 ambient_light_energy = 0.01
 tonemap_mode = 4
 tonemap_exposure = 0.3
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_read_sky_light = false
+sdfgi_energy = 1.5
 glow_enabled = true
 glow_normalized = true
-glow_strength = 1.33
-glow_bloom = 0.17
+glow_intensity = 0.47
+glow_strength = 1.45
+glow_bloom = 0.1
 glow_blend_mode = 1
+fog_light_energy = 0.0
+fog_sky_affect = 0.0
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.77084, 0.770839, 0.770839, 1)
+volumetric_fog_emission_energy = 0.0
+volumetric_fog_gi_inject = 0.23
+volumetric_fog_temporal_reprojection_amount = 0.99
+
+[sub_resource type="Animation" id="Animation_gr1bq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.67329, 0.583994, -2.27356)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:fov")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [41.3868]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -2.27174, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_o7f6b"]
 resource_name = "1"
@@ -136,133 +188,90 @@ tracks/2/keys = {
 "values": [Vector3(0.254474, -1.05946, -0.0890345)]
 }
 
-[sub_resource type="Animation" id="Animation_gr1bq"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_hi8aa"]
+resource_name = "menu to 1"
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
+tracks/0/path = NodePath(".:fov")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.594604, 0.594604),
 "update": 0,
-"values": [Vector3(-3.44004, 0.921939, -0.319522)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:fov")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [21.9808]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -0.151809, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_s2ngy"]
-resource_name = "back_menu"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.145401, 0.666905, -0.00885497)]
+"values": [41.3868, 50.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.450625, 0.450625),
 "update": 0,
-"values": [Vector3(-0.73473, 0.410219, -0.319522)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:fov")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [17.4143]
-}
-
-[sub_resource type="Animation" id="Animation_h3ldb"]
-resource_name = "on_table"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(2.21914, 2.21914),
-"update": 0,
-"values": [Vector3(-3.44004, 0.921939, -3.22513), Vector3(-0.7, 0.6, -0.32)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:fov")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.406126, 1),
-"update": 0,
-"values": [56.1681, 50.0]
+"values": [Vector3(-2.67329, 0.583994, -2.27356), Vector3(-0.7, 0.6, -0.32)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/path = NodePath(".:rotation")
-tracks/2/interp = 1
+tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.225313, 0.225313),
 "update": 0,
-"values": [Vector3(0.46685, -0.170168, -0.0771829), Vector3(0.335103, 0.801106, -0.0645772)]
+"values": [Vector3(0, -2.27174, 0), Vector3(0.335103, 0.801106, -0.0645772)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6rkge"]
 _data = {
-&"1": SubResource("Animation_o7f6b"),
-&"1to2": SubResource("Animation_6rkge"),
-&"2to3": SubResource("Animation_lge20"),
 &"RESET": SubResource("Animation_gr1bq"),
-&"back_menu": SubResource("Animation_s2ngy"),
-&"on_table": SubResource("Animation_h3ldb")
+&"table to 1": SubResource("Animation_hi8aa"),
+&"to1": SubResource("Animation_o7f6b"),
+&"to2": SubResource("Animation_6rkge"),
+&"to3": SubResource("Animation_lge20")
+}
+
+[sub_resource type="Animation" id="Animation_ksehr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [80.0]
+}
+
+[sub_resource type="Animation" id="Animation_s480y"]
+resource_name = "flicker"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.02498, 0.1, 0.15, 0.2, 0.25, 0.27, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [80.0, 60.0, 90.0, 30.0, 20.0, 5.0, 30.0, 70.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hi8aa"]
+_data = {
+&"RESET": SubResource("Animation_ksehr"),
+&"flicker": SubResource("Animation_s480y")
 }
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_6rkge"]
@@ -279,8 +288,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3507, 0)
 light_color = Color(0, 0, 0, 1)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.988499, 0, -0.151227, 0, 1, 0, 0.151227, 0, 0.988499, -3.44004, 0.921939, -0.319522)
-fov = 21.9808
+transform = Transform3D(-0.644938, 0, -0.764235, 0, 1, 0, 0.764235, 0, -0.644938, -2.67329, 0.583994, -2.27356)
+visible = false
+fov = 41.3868
 near = 0.001
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
@@ -289,23 +299,24 @@ libraries = {
 }
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(0.661007, 0.0453587, 0.749007, -0.661761, 0.505808, 0.553381, -0.353754, -0.861453, 0.36436, 3.93385, 2.2707, -2.2737)
+transform = Transform3D(0.401928, 0.241622, 0.883217, -0.82021, 0.523809, 0.229957, -0.407074, -0.81685, 0.408714, 3.93385, 2.2707, -2.2737)
 light_color = Color(0.142957, 0.543698, 0.567166, 1)
 light_energy = 80.0
-light_indirect_energy = 3.479
-light_volumetric_fog_energy = 5.282
 light_size = 1.0
 light_specular = 3.295
 shadow_enabled = true
 shadow_bias = 0.0
-shadow_normal_bias = 0.563
 shadow_opacity = 0.93
-spot_range = 7.11005
+shadow_blur = 0.207
+spot_range = 9.32557
 spot_attenuation = 1.28
 spot_angle = 32.6748
 spot_angle_attenuation = 0.0412346
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SpotLight3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_hi8aa")
+}
 
 [node name="models" type="Node" parent="."]
 
@@ -327,7 +338,6 @@ text = "Monitore #1"
 
 [node name="monitor2" parent="models" instance=ExtResource("3_s2ngy")]
 transform = Transform3D(-0.00165599, -0.796743, 8.49682e-06, 0.568148, -0.00232228, -0.00291514, 0.0235245, 0, 0.0704051, -0.332172, 1.15813, -2.71653)
-visible = false
 
 [node name="light_chM" type="MeshInstance3D" parent="models/monitor2"]
 transform = Transform3D(1, 0, -1.11022e-16, 0, -4.37114e-08, -1, -2.38419e-07, 1, -4.37114e-08, -0.0394864, 0, 1.15298)
@@ -340,8 +350,7 @@ transform = Transform3D(1.19249e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, -1.1
 text = "Monitore #2"
 
 [node name="monitor3" parent="models" instance=ExtResource("3_s2ngy")]
-transform = Transform3D(0.492057, 0, -0.0353179, 0, 0.796747, 0, 0.285006, 0, 0.0609756, 1.10113, 1.51504, -2.43328)
-visible = false
+transform = Transform3D(0.552705, 0, -0.0165634, 0, 0.796747, 0, 0.133662, 0, 0.0684911, 1.26642, 1.51504, -2.73018)
 
 [node name="light_chM" type="MeshInstance3D" parent="models/monitor3"]
 transform = Transform3D(1, 0, -1.11022e-16, 0, -4.37114e-08, -1, -2.38419e-07, 1, -4.37114e-08, -0.0394864, 0, 1.15298)
@@ -352,3 +361,9 @@ skeleton = NodePath("../../..")
 [node name="Label3D" type="Label3D" parent="models/monitor3/light_chM"]
 transform = Transform3D(1, 1.99938e-16, 3.72529e-09, 2.38419e-07, -4.37114e-08, 1, -1.42109e-14, -1, -4.37114e-08, 0.140841, 0.259117, -1.19209e-07)
 text = "Monitore #3"
+
+[node name="MainMenuHud" parent="." instance=ExtResource("5_6rkge")]
+
+[connection signal="start_butt_press" from="MainMenuHud" to="." method="_on_main_menu_hud_start_butt_press"]
+
+[editable path="MainMenuHud"]
