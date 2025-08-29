@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dyhxim30jvy3c"]
+[gd_scene load_steps=21 format=3 uid="uid://dyhxim30jvy3c"]
 
 [ext_resource type="PackedScene" uid="uid://y0nvi58fm1dd" path="res://_Ress/3d/table/old_metal_table_low_poly.glb" id="1_6uh6v"]
 [ext_resource type="Script" uid="uid://c02xgbvb4l5sf" path="res://Scripts/Menu/main_menu_3d.gd" id="1_s2ngy"]
@@ -268,11 +268,134 @@ tracks/2/keys = {
 "values": [Vector3(0.254474, -1.05946, -0.0890345), Vector3(0.197444, -0.092208, 0.0106628)]
 }
 
+[sub_resource type="Animation" id="Animation_xtk7p"]
+resource_name = "1_toTable"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.594604, 0.594604),
+"update": 0,
+"values": [50.0, 41.3868]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.450625, 0.450625),
+"update": 0,
+"values": [Vector3(-0.7, 0.6, -0.32), Vector3(-2.67329, 0.583994, -2.27356)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.225313, 0.225313),
+"update": 0,
+"values": [Vector3(0.334499, 0.800673, -0.064657), Vector3(0, -2.27174, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yvn63"]
+resource_name = "2_toTable"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.594604, 0.594604),
+"update": 0,
+"values": [50.0, 41.3868]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.450625, 0.450625),
+"update": 0,
+"values": [Vector3(-0.7, 0.85, -0.32), Vector3(-2.67329, 0.583994, -2.27356)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.225313, 0.225313),
+"update": 0,
+"values": [Vector3(0.197444, -0.092208, 0.0106628), Vector3(0, -2.27174, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_keumk"]
+resource_name = "3_toTable"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.594604, 0.594604),
+"update": 0,
+"values": [50.0, 41.3868]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.450625, 0.450625),
+"update": 0,
+"values": [Vector3(-0.7, 0.6, -0.32), Vector3(-2.67329, 0.583994, -2.27356)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.225313, 0.225313),
+"update": 0,
+"values": [Vector3(0.254474, -1.05946, -0.0890345), Vector3(0, -2.27174, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6rkge"]
 _data = {
+&"1_toTable": SubResource("Animation_xtk7p"),
 &"1to2": SubResource("Animation_6rkge"),
+&"2_toTable": SubResource("Animation_yvn63"),
 &"2to1": SubResource("Animation_o7f6b"),
 &"2to3": SubResource("Animation_lge20"),
+&"3_toTable": SubResource("Animation_keumk"),
 &"3to2": SubResource("Animation_4hd41"),
 &"RESET": SubResource("Animation_gr1bq"),
 &"table to 1": SubResource("Animation_hi8aa")
@@ -358,6 +481,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_hi8aa")
 }
 
+[node name="Timer" type="Timer" parent="SpotLight3D"]
+wait_time = 17.0
+autostart = true
+
 [node name="models" type="Node" parent="."]
 
 [node name="table" parent="models" instance=ExtResource("1_6uh6v")]
@@ -407,6 +534,8 @@ text = "Monitore #3"
 [node name="AudioSP3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
 
+[connection signal="animation_finished" from="Camera3D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="SpotLight3D/Timer" to="." method="_on_timer_timeout"]
 [connection signal="start_butt_press" from="MainMenuHud" to="." method="_on_main_menu_hud_start_butt_press"]
 
 [editable path="MainMenuHud"]
