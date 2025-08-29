@@ -4,7 +4,6 @@ extends Node3D
 @onready var mainMenuHUD = $"MainMenuHud"
 
 func _ready() -> void:
-	# mainCameraAn.play("1")
 	pass
 
 

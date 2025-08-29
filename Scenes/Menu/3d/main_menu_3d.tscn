@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dyhxim30jvy3c"]
+[gd_scene load_steps=18 format=3 uid="uid://dyhxim30jvy3c"]
 
 [ext_resource type="PackedScene" uid="uid://y0nvi58fm1dd" path="res://_Ress/3d/table/old_metal_table_low_poly.glb" id="1_6uh6v"]
 [ext_resource type="Script" uid="uid://c02xgbvb4l5sf" path="res://Scripts/Menu/main_menu_3d.gd" id="1_s2ngy"]
@@ -10,7 +10,7 @@
 background_mode = 1
 ambient_light_energy = 0.01
 tonemap_mode = 4
-tonemap_exposure = 0.3
+tonemap_exposure = 0.44
 sdfgi_enabled = true
 sdfgi_use_occlusion = true
 sdfgi_read_sky_light = false
@@ -68,126 +68,6 @@ tracks/2/keys = {
 "values": [Vector3(0, -2.27174, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_o7f6b"]
-resource_name = "1"
-length = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:fov")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [50.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.7, 0.6, -0.32)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.334499, 0.800673, -0.064657)]
-}
-
-[sub_resource type="Animation" id="Animation_6rkge"]
-resource_name = "1to2"
-length = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:fov")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [50.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.7, 0.85, -0.32)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.197444, -0.092208, 0.0106628)]
-}
-
-[sub_resource type="Animation" id="Animation_lge20"]
-resource_name = "2to3"
-length = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:fov")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [50.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.7, 0.6, -0.32)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.254474, -1.05946, -0.0890345)]
-}
-
 [sub_resource type="Animation" id="Animation_hi8aa"]
 resource_name = "menu to 1"
 length = 0.6
@@ -228,13 +108,174 @@ tracks/2/keys = {
 "values": [Vector3(0, -2.27174, 0), Vector3(0.335103, 0.801106, -0.0645772)]
 }
 
+[sub_resource type="Animation" id="Animation_6rkge"]
+resource_name = "1to2"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.594604, 0.594604),
+"update": 0,
+"values": [50.0, 50.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.450625, 0.450625),
+"update": 0,
+"values": [Vector3(-0.7, 0.6, -0.32), Vector3(-0.7, 0.85, -0.32)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.225313, 0.225313),
+"update": 0,
+"values": [Vector3(0.334499, 0.800673, -0.064657), Vector3(0.197444, -0.092208, 0.0106628)]
+}
+
+[sub_resource type="Animation" id="Animation_o7f6b"]
+resource_name = "1"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.594604, 0.594604),
+"update": 0,
+"values": [50.0, 50.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.450625, 0.450625),
+"update": 0,
+"values": [Vector3(-0.7, 0.85, -0.32), Vector3(-0.7, 0.6, -0.32)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.225313, 0.225313),
+"update": 0,
+"values": [Vector3(0.197444, -0.092208, 0.0106628), Vector3(0.334499, 0.800673, -0.064657)]
+}
+
+[sub_resource type="Animation" id="Animation_lge20"]
+resource_name = "2to3"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.594604, 0.594604),
+"update": 0,
+"values": [50.0, 50.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.450625, 0.450625),
+"update": 0,
+"values": [Vector3(-0.7, 0.85, -0.32), Vector3(-0.7, 0.6, -0.32)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.225313, 0.225313),
+"update": 0,
+"values": [Vector3(0.197444, -0.092208, 0.0106628), Vector3(0.254474, -1.05946, -0.0890345)]
+}
+
+[sub_resource type="Animation" id="Animation_4hd41"]
+resource_name = "3to2"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.594604, 0.594604),
+"update": 0,
+"values": [50.0, 50.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.450625, 0.450625),
+"update": 0,
+"values": [Vector3(-0.7, 0.6, -0.32), Vector3(-0.7, 0.85, -0.32)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.225313, 0.225313),
+"update": 0,
+"values": [Vector3(0.254474, -1.05946, -0.0890345), Vector3(0.197444, -0.092208, 0.0106628)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6rkge"]
 _data = {
+&"1to2": SubResource("Animation_6rkge"),
+&"2to1": SubResource("Animation_o7f6b"),
+&"2to3": SubResource("Animation_lge20"),
+&"3to2": SubResource("Animation_4hd41"),
 &"RESET": SubResource("Animation_gr1bq"),
-&"table to 1": SubResource("Animation_hi8aa"),
-&"to1": SubResource("Animation_o7f6b"),
-&"to2": SubResource("Animation_6rkge"),
-&"to3": SubResource("Animation_lge20")
+&"table to 1": SubResource("Animation_hi8aa")
 }
 
 [sub_resource type="Animation" id="Animation_ksehr"]
@@ -254,7 +295,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_s480y"]
 resource_name = "flicker"
-length = 0.3
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -262,10 +303,10 @@ tracks/0/path = NodePath(".:light_energy")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.02498, 0.1, 0.15, 0.2, 0.25, 0.27, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.02498, 0.0333334, 0.05, 0.1, 0.3, 0.324184, 0.35, 0.366667, 0.466667, 0.6),
+"transitions": PackedFloat32Array(3.605, 3.605, 1, 0.287175, 0.25, 0.25, 2.37841, 2.37841, 1, 0.233258, 0.233258),
 "update": 0,
-"values": [80.0, 60.0, 90.0, 30.0, 20.0, 5.0, 30.0, 70.0]
+"values": [80.0, 60.0, 20.0, 50.0, 90.0, 30.0, 40.0, 20.0, 50.0, 5.0, 30.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hi8aa"]
@@ -288,8 +329,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3507, 0)
 light_color = Color(0, 0, 0, 1)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.644938, 0, -0.764235, 0, 1, 0, 0.764235, 0, -0.644938, -2.67329, 0.583994, -2.27356)
-visible = false
+transform = Transform3D(-0.644939, 0, -0.764234, 0, 1, 0, 0.764234, 0, -0.644939, -2.67329, 0.583994, -2.27356)
 fov = 41.3868
 near = 0.001
 
@@ -327,7 +367,7 @@ transform = Transform3D(0.0111314, 0, -1.95552, 0, 1, 0, 1.83797, 0, 0.0118433, 
 transform = Transform3D(0.548091, 0, 0.0187706, 0, 0.796747, 0, -0.151474, 0, 0.0679194, -1.87325, 1.22888, -2.71653)
 
 [node name="light_chM" type="MeshInstance3D" parent="models/monitor1"]
-transform = Transform3D(1, 0, -1.11022e-16, 0, -4.37114e-08, -1, -2.38419e-07, 1, -4.37114e-08, -0.0394864, 0, 1.15298)
+transform = Transform3D(0.913867, 1.86265e-09, -3.33067e-16, 0, -4.26541e-08, -1, -4.76837e-07, 0.975813, -4.37114e-08, -0.0394864, 0, 1.15298)
 material_override = ExtResource("4_gr1bq")
 mesh = SubResource("PlaneMesh_6rkge")
 skeleton = NodePath("../../..")
@@ -340,7 +380,7 @@ text = "Monitore #1"
 transform = Transform3D(-0.00165599, -0.796743, 8.49682e-06, 0.568148, -0.00232228, -0.00291514, 0.0235245, 0, 0.0704051, -0.332172, 1.15813, -2.71653)
 
 [node name="light_chM" type="MeshInstance3D" parent="models/monitor2"]
-transform = Transform3D(1, 0, -1.11022e-16, 0, -4.37114e-08, -1, -2.38419e-07, 1, -4.37114e-08, -0.0394864, 0, 1.15298)
+transform = Transform3D(0.933941, -4.65661e-10, 1.17413e-09, 1.22361e-10, -4.38295e-08, -0.999807, -2.38419e-07, 1.00274, -4.3783e-08, 0.0248759, -0.000133991, 1.13147)
 material_override = ExtResource("4_gr1bq")
 mesh = SubResource("PlaneMesh_6rkge")
 skeleton = NodePath("../../..")
@@ -353,7 +393,7 @@ text = "Monitore #2"
 transform = Transform3D(0.552705, 0, -0.0165634, 0, 0.796747, 0, 0.133662, 0, 0.0684911, 1.26642, 1.51504, -2.73018)
 
 [node name="light_chM" type="MeshInstance3D" parent="models/monitor3"]
-transform = Transform3D(1, 0, -1.11022e-16, 0, -4.37114e-08, -1, -2.38419e-07, 1, -4.37114e-08, -0.0394864, 0, 1.15298)
+transform = Transform3D(0.902169, 0, 0, 0, -4.47692e-08, -0.999999, 1.19209e-07, 1.0242, -4.37114e-08, 0.0556158, 0, 1.15082)
 material_override = ExtResource("4_gr1bq")
 mesh = SubResource("PlaneMesh_6rkge")
 skeleton = NodePath("../../..")
@@ -363,6 +403,9 @@ transform = Transform3D(1, 1.99938e-16, 3.72529e-09, 2.38419e-07, -4.37114e-08, 
 text = "Monitore #3"
 
 [node name="MainMenuHud" parent="." instance=ExtResource("5_6rkge")]
+
+[node name="AudioSP3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
 
 [connection signal="start_butt_press" from="MainMenuHud" to="." method="_on_main_menu_hud_start_butt_press"]
 
