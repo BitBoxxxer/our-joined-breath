@@ -12,6 +12,7 @@ var current_monitor = 0
 
 func _ready() -> void:
 	mainMenuHUDCm.visible = false
+	$"models/AP_Monitors".play("all_shutDown")
 
 func _process(_delta: float) -> void:
 	if can_look == true:
@@ -19,20 +20,20 @@ func _process(_delta: float) -> void:
 			audioPlayer.play()
 			if current_monitor == 2:
 				mainCameraAn.play("2to1")
-				$"models/AP_Monitors".play("1_up"); $"models/AP_Monitors".play("2_down")
+				$"models/AP_Monitors".play("2down_1up")
 			elif current_monitor == 3:
 				mainCameraAn.play("3to2")
-				$"models/AP_Monitors".play("2_up"); $"models/AP_Monitors".play("3_down")
+				$"models/AP_Monitors".play("3down_2up")
 			can_look = false
 		
 		if Input.is_action_just_pressed("UI_look_right"):
 			audioPlayer.play()
 			if current_monitor == 1:
 				mainCameraAn.play("1to2")
-				$"models/AP_Monitors".play("1_down"); $"models/AP_Monitors".play("2_up")
+				$"models/AP_Monitors".play("1down_2up")
 			elif current_monitor == 2:
 				mainCameraAn.play("2to3")
-				$"models/AP_Monitors".play("2_down"); $"models/AP_Monitors".play("3_up")
+				$"models/AP_Monitors".play("2down_3up")
 			can_look = false
 		
 		if Input.is_action_just_pressed("UI_esc"):
@@ -42,11 +43,10 @@ func _process(_delta: float) -> void:
 				mainCameraAn.play("2_toTable")
 			else:
 				mainCameraAn.play("3_toTable")
-			$"models/AP_Monitors".play("1_down"); $"models/AP_Monitors".play("2_down"); $"models/AP_Monitors".play("3_down")
 			mainMenuHUDC.visible = true; mainMenuHUDCm.visible = false; can_look = false
 
 func _on_main_menu_hud_start_butt_press() -> void:
-	mainCameraAn.play("table to 1"); $"models/AP_Monitors".play("1_up")
+	mainCameraAn.play("table to 1"); $"models/AP_Monitors".play("1up")
 	mainMenuHUDC.visible = false; mainMenuHUDCm.visible = true
 
 func _on_animation_player_animation_finished(anim_name):
@@ -62,6 +62,11 @@ func _on_animation_player_animation_finished(anim_name):
 			current_monitor = 3
 	can_look = true
 
+
+# P.s. Main SpotLight3D
 func _on_timer_timeout() -> void:
-	$"SpotLight3D/AnimationPlayer".play("flicker")
-	# TODO: сделать await анимации -> вернуть в состояние RESET anim.
+	$"SpotLight3D/AP_SpotLight".play("flicker")
+
+func _on_ap_spot_light_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "flicker":
+		$"SpotLight3D/AP_SpotLight".play("back_fromFricker")

@@ -3,4 +3,3 @@
 [resource]
 emission_enabled = true
 emission = Color(0.909362, 0.789933, 0.732323, 1)
-emission_energy_multiplier = 0.0
