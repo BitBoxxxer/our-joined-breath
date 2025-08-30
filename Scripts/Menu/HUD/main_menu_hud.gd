@@ -8,7 +8,7 @@ signal start_butt_press
 func _ready() -> void:
 	mainVCBTTs.visible = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_anything_pressed():
 		mainVCBTTs.visible = true
 		textforpressd.visible = false
