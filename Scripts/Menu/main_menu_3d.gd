@@ -1,7 +1,8 @@
 extends Node3D
 
-@onready var mainMenuHUDC = $"MainMenuHud/Control";
-@onready var mainMenuHUDCm = $"MainMenuHud/ControlMonitor's"
+@onready var mainMenuHUDC = $"UI/MainMenuHud/Control";
+@onready var mainMenuHUDCm = $"UI/MainMenuHud/ControlMonitor's"
+@onready var MenuMonitorsHUD = $"UI/Menu_Monitor_HUD"
 
 @onready var mainCameraAn = $"Camera3D/AnimationPlayer"
 @onready var audioPlayer = $"AudioSP3D"
@@ -12,6 +13,7 @@ var current_monitor = 0
 
 func _ready() -> void:
 	mainMenuHUDCm.visible = false
+	MenuMonitorsHUD.visible = false
 	$"models/AP_Monitors".play("all_shutDown")
 
 func _process(_delta: float) -> void:
@@ -43,24 +45,27 @@ func _process(_delta: float) -> void:
 				mainCameraAn.play("2_toTable")
 			else:
 				mainCameraAn.play("3_toTable")
-			mainMenuHUDC.visible = true; mainMenuHUDCm.visible = false; can_look = false
+			mainMenuHUDC.visible = true; MenuMonitorsHUD.visible = false
+			mainMenuHUDCm.visible = false; can_look = false
 
 func _on_main_menu_hud_start_butt_press() -> void:
 	mainCameraAn.play("table to 1"); $"models/AP_Monitors".play("1up")
 	mainMenuHUDC.visible = false; mainMenuHUDCm.visible = true
 
 func _on_animation_player_animation_finished(anim_name):
-	if anim_name == "table to 1":
-		can_look = true
-	
 	match anim_name:
 		"table to 1", "2to1":
 			current_monitor = 1
+			can_look = true
+			MenuMonitorsHUD.visible = true
 		"1to2", "3to2":
 			current_monitor = 2
+			can_look = true
+			MenuMonitorsHUD.visible = true
 		"2to3":
 			current_monitor = 3
-	can_look = true
+			can_look = true
+			MenuMonitorsHUD.visible = true
 
 
 # P.s. Main SpotLight3D

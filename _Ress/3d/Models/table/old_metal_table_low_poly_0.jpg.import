@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsg311jqarc3w"
-path.s3tc="res://.godot/imported/concrete_wall_0.png-7059814a05d357f6398c0dd9dc8c113a.s3tc.ctex"
+uid="uid://hjf2lopf1iqf"
+path.s3tc="res://.godot/imported/old_metal_table_low_poly_0.jpg-e080664e4cb5a635cb074fbac2f4286a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "aeeec57565ba457d71bda8b66e67071e"
+"md5": "c70a87ba5e921dcc194648614af60eb2"
 }
 
 [deps]
 
-source_file="res://_Ress/3d/wall/concrete_wall_0.png"
-dest_files=["res://.godot/imported/concrete_wall_0.png-7059814a05d357f6398c0dd9dc8c113a.s3tc.ctex"]
+source_file="res://_Ress/3d/Models/table/old_metal_table_low_poly_0.jpg"
+dest_files=["res://.godot/imported/old_metal_table_low_poly_0.jpg-e080664e4cb5a635cb074fbac2f4286a.s3tc.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
-[gd_scene load_steps=33 format=3 uid="uid://dyhxim30jvy3c"]
+[gd_scene load_steps=34 format=3 uid="uid://dyhxim30jvy3c"]
 
-[ext_resource type="PackedScene" uid="uid://y0nvi58fm1dd" path="res://_Ress/3d/table/old_metal_table_low_poly.glb" id="1_6uh6v"]
+[ext_resource type="PackedScene" uid="uid://y0nvi58fm1dd" path="res://_Ress/3d/Models/table/old_metal_table_low_poly.glb" id="1_6uh6v"]
 [ext_resource type="Script" uid="uid://c02xgbvb4l5sf" path="res://Scripts/Menu/main_menu_3d.gd" id="1_s2ngy"]
 [ext_resource type="PackedScene" uid="uid://xp6wlhqb0ym8" path="res://_Ress/3d/cube/transparent_cube.glb" id="3_s2ngy"]
 [ext_resource type="Material" uid="uid://jckv51l3x6k1" path="res://_Ress/3d/effects/light_monitor_menu.tres" id="4_gr1bq"]
@@ -8,6 +8,7 @@
 [ext_resource type="Material" uid="uid://d24kpiyjpainv" path="res://_Ress/3d/effects/light_monitor_menu3.tres" id="5_s480y"]
 [ext_resource type="Material" uid="uid://xuxkt2sssxhi" path="res://_Ress/3d/effects/light_monitor_menu2.tres" id="6_ksehr"]
 [ext_resource type="AudioStream" uid="uid://c8rycqmm1mgwg" path="res://_Ress/Sound/UI/ui-sound-270349.mp3" id="6_lge20"]
+[ext_resource type="PackedScene" uid="uid://bduipm5o65jjh" path="res://Scenes/HUD/menu_monitor_hud.tscn" id="9_ksehr"]
 
 [sub_resource type="Environment" id="Environment_h3ldb"]
 background_mode = 1
@@ -419,22 +420,6 @@ tracks/0/keys = {
 "values": [80.0]
 }
 
-[sub_resource type="Animation" id="Animation_s480y"]
-resource_name = "flicker"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:light_energy")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.02498, 0.0333334, 0.05, 0.1, 0.3, 0.324184, 0.35, 0.366667, 0.466667, 0.6),
-"transitions": PackedFloat32Array(3.605, 3.605, 1, 0.287175, 0.25, 0.25, 2.37841, 2.37841, 1, 0.233258, 0.233258),
-"update": 0,
-"values": [80.0, 60.0, 20.0, 50.0, 90.0, 30.0, 40.0, 20.0, 50.0, 5.0, 30.0]
-}
-
 [sub_resource type="Animation" id="Animation_4s0ty"]
 resource_name = "back_fromFricker"
 length = 0.5
@@ -451,6 +436,22 @@ tracks/0/keys = {
 "values": [10.0, 80.0]
 }
 
+[sub_resource type="Animation" id="Animation_s480y"]
+resource_name = "flicker"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.02498, 0.0333334, 0.05, 0.1, 0.3, 0.324184, 0.35, 0.366667, 0.466667, 0.6),
+"transitions": PackedFloat32Array(3.605, 3.605, 1, 0.287175, 0.25, 0.25, 2.37841, 2.37841, 1, 0.233258, 0.233258),
+"update": 0,
+"values": [80.0, 60.0, 20.0, 50.0, 90.0, 30.0, 40.0, 20.0, 50.0, 5.0, 30.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hi8aa"]
 _data = {
 &"RESET": SubResource("Animation_ksehr"),
@@ -459,6 +460,134 @@ _data = {
 }
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_6rkge"]
+
+[sub_resource type="Animation" id="Animation_o5w5g"]
+resource_name = "1down_2up"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("monitor1/light_chM:material_override:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.277392, 0.277392),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("monitor2/light_chM:material_override:emission_energy_multiplier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.277392, 0.277392),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_sbsoe"]
+resource_name = "1up"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("monitor1/light_chM:material_override:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.287175, 0.287175),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_bl12w"]
+resource_name = "2down_1up"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("monitor2/light_chM:material_override:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.277392, 0.277392),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("monitor1/light_chM:material_override:emission_energy_multiplier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.277393, 0.277393),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_5v2mb"]
+resource_name = "2down_3up"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("monitor3/light_chM:material_override:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.277393, 0.277393),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("monitor2/light_chM:material_override:emission_energy_multiplier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.277393, 0.277393),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_fkk52"]
+resource_name = "3down_2up"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("monitor3/light_chM:material_override:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.277393, 0.277393),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("monitor2/light_chM:material_override:emission_energy_multiplier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.277393, 0.277393),
+"update": 0,
+"values": [0.0, 1.0]
+}
 
 [sub_resource type="Animation" id="Animation_dg13f"]
 length = 0.001
@@ -539,134 +668,6 @@ tracks/2/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_o5w5g"]
-resource_name = "1down_2up"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("monitor1/light_chM:material_override:emission_energy_multiplier")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(0.277392, 0.277392),
-"update": 0,
-"values": [1.0, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("monitor2/light_chM:material_override:emission_energy_multiplier")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(0.277392, 0.277392),
-"update": 0,
-"values": [0.0, 1.0]
-}
-
-[sub_resource type="Animation" id="Animation_5v2mb"]
-resource_name = "2down_3up"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("monitor3/light_chM:material_override:emission_energy_multiplier")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(0.277393, 0.277393),
-"update": 0,
-"values": [0.0, 1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("monitor2/light_chM:material_override:emission_energy_multiplier")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(0.277393, 0.277393),
-"update": 0,
-"values": [1.0, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_fkk52"]
-resource_name = "3down_2up"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("monitor3/light_chM:material_override:emission_energy_multiplier")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(0.277393, 0.277393),
-"update": 0,
-"values": [1.0, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("monitor2/light_chM:material_override:emission_energy_multiplier")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(0.277393, 0.277393),
-"update": 0,
-"values": [0.0, 1.0]
-}
-
-[sub_resource type="Animation" id="Animation_bl12w"]
-resource_name = "2down_1up"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("monitor2/light_chM:material_override:emission_energy_multiplier")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(0.277392, 0.277392),
-"update": 0,
-"values": [1.0, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("monitor1/light_chM:material_override:emission_energy_multiplier")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(0.277393, 0.277393),
-"update": 0,
-"values": [0.0, 1.0]
-}
-
-[sub_resource type="Animation" id="Animation_sbsoe"]
-resource_name = "1up"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("monitor1/light_chM:material_override:emission_energy_multiplier")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(0.287175, 0.287175),
-"update": 0,
-"values": [0.0, 1.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dg13f"]
 _data = {
 &"1down_2up": SubResource("Animation_o5w5g"),
@@ -737,10 +738,6 @@ material_override = ExtResource("4_gr1bq")
 mesh = SubResource("PlaneMesh_6rkge")
 skeleton = NodePath("../../..")
 
-[node name="Label3D" type="Label3D" parent="models/monitor1/light_chM"]
-transform = Transform3D(1, 1.99938e-16, 3.72529e-09, 2.38419e-07, -4.37114e-08, 1, -1.42109e-14, -1, -4.37114e-08, 0.140841, 0.259117, -1.19209e-07)
-text = "Monitore #1"
-
 [node name="monitor2" parent="models" instance=ExtResource("3_s2ngy")]
 transform = Transform3D(-0.00165599, -0.796743, 8.49682e-06, 0.568148, -0.00232228, -0.00291514, 0.0235245, 0, 0.0704051, -0.332172, 1.15813, -2.71653)
 
@@ -749,10 +746,6 @@ transform = Transform3D(0.933941, -4.65661e-10, 1.17413e-09, 1.22361e-10, -4.382
 material_override = ExtResource("5_s480y")
 mesh = SubResource("PlaneMesh_6rkge")
 skeleton = NodePath("../../..")
-
-[node name="Label3D" type="Label3D" parent="models/monitor2/light_chM"]
-transform = Transform3D(1.19249e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, -1.19249e-08, -5.21253e-16, 0.140841, 0.259117, -1.19209e-07)
-text = "Monitore #2"
 
 [node name="monitor3" parent="models" instance=ExtResource("3_s2ngy")]
 transform = Transform3D(0.552705, 0, -0.0165634, 0, 0.796747, 0, 0.133662, 0, 0.0684911, 1.26642, 1.51504, -2.73018)
@@ -763,24 +756,29 @@ material_override = ExtResource("6_ksehr")
 mesh = SubResource("PlaneMesh_6rkge")
 skeleton = NodePath("../../..")
 
-[node name="Label3D" type="Label3D" parent="models/monitor3/light_chM"]
-transform = Transform3D(1, 1.99938e-16, 3.72529e-09, 2.38419e-07, -4.37114e-08, 1, -1.42109e-14, -1, -4.37114e-08, 0.140841, 0.259117, -1.19209e-07)
-text = "Monitore #3"
-
 [node name="AP_Monitors" type="AnimationPlayer" parent="models"]
 libraries = {
 &"": SubResource("AnimationLibrary_dg13f")
 }
 
-[node name="MainMenuHud" parent="." instance=ExtResource("5_6rkge")]
-
 [node name="AudioSP3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.729347, 1.36263, 1.28827)
 stream = ExtResource("6_lge20")
+volume_db = -12.0
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MainMenuHud" parent="UI" instance=ExtResource("5_6rkge")]
+
+[node name="Menu_Monitor_HUD" parent="UI" instance=ExtResource("9_ksehr")]
 
 [connection signal="animation_finished" from="Camera3D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="SpotLight3D/AP_SpotLight" to="." method="_on_ap_spot_light_animation_finished"]
 [connection signal="timeout" from="SpotLight3D/Timer" to="." method="_on_timer_timeout"]
-[connection signal="start_butt_press" from="MainMenuHud" to="." method="_on_main_menu_hud_start_butt_press"]
+[connection signal="start_butt_press" from="UI/MainMenuHud" to="." method="_on_main_menu_hud_start_butt_press"]
 
-[editable path="MainMenuHud"]
+[editable path="UI/MainMenuHud"]

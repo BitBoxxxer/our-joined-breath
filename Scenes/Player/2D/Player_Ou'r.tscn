@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://chy8cdqugsu2g"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6e5je"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"DEF",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"interaction",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(8, -12)
+scale = Vector2(0.975151, 0.711283)
+polygon = PackedVector2Array(-3.07645, 16.8709, 3.07645, 16.8709, 5.12741, 8.43546, 5.12741, -1.40591, 2.05096, -9.84137, -2.05096, -9.84137, -5.12741, -1.40591, -5.12741, 8.43546)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 9.53674e-07)
+sprite_frames = SubResource("SpriteFrames_6e5je")
+animation = &"DEF"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]

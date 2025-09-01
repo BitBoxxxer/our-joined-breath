@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b1abm6sqnhb1e"
-path="res://.godot/imported/concrete_wall.glb-44c839cb9aefdf0427651b743f7d77ea.scn"
+uid="uid://y0nvi58fm1dd"
+path="res://.godot/imported/old_metal_table_low_poly.glb-2c9cfd5d3f0e7d5badf3cf5c2f0afddb.scn"
 
 [deps]
 
-source_file="res://_Ress/3d/wall/concrete_wall.glb"
-dest_files=["res://.godot/imported/concrete_wall.glb-44c839cb9aefdf0427651b743f7d77ea.scn"]
+source_file="res://_Ress/3d/Models/table/old_metal_table_low_poly.glb"
+dest_files=["res://.godot/imported/old_metal_table_low_poly.glb-2c9cfd5d3f0e7d5badf3cf5c2f0afddb.scn"]
 
 [params]
 

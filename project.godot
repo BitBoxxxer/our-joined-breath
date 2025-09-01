@@ -15,7 +15,7 @@ config/version="0.1beta"
 config/tags=PackedStringArray("game")
 run/main_scene="uid://qtytle4jbeiv"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://Sprites/icon.svg"
+config/icon="res://_Ress/Sprites/icon.svg"
 
 [audio]
 
@@ -35,9 +35,10 @@ folder_colors={
 "res://Scenes/": "red",
 "res://Scripts/": "orange",
 "res://Sound/": "blue",
-"res://Sprites/": "yellow",
 "res://_Ress/": "green",
-"res://_Ress/3d/effects/": "purple"
+"res://_Ress/3d/": "purple",
+"res://_Ress/3d/effects/": "purple",
+"res://_Ress/Sprites/": "yellow"
 }
 
 [input]

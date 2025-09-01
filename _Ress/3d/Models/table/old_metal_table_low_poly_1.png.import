@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crb0jrnqftg7q"
-path.s3tc="res://.godot/imported/old_metal_table_low_poly_2.png-a4b6aed7a5fe81663e1fad73bb88e4b9.s3tc.ctex"
+uid="uid://cmbn8wvos68dw"
+path.s3tc="res://.godot/imported/old_metal_table_low_poly_1.png-e9712e4f74b83d741819ca8cec04c585.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "ff8c785dbfdad0a2430b12b9fe00a23f"
+"md5": "61e99b7fcd41630a3f2d6a6a31a0d400"
 }
 
 [deps]
 
-source_file="res://_Ress/3d/table/old_metal_table_low_poly_2.png"
-dest_files=["res://.godot/imported/old_metal_table_low_poly_2.png-a4b6aed7a5fe81663e1fad73bb88e4b9.s3tc.ctex"]
+source_file="res://_Ress/3d/Models/table/old_metal_table_low_poly_1.png"
+dest_files=["res://.godot/imported/old_metal_table_low_poly_1.png-e9712e4f74b83d741819ca8cec04c585.s3tc.ctex"]
 
 [params]
 
@@ -23,11 +23,11 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
+roughness/mode=8
 roughness/src_normal="res://_Ress/3d/old_metal_table_low_poly_2.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
