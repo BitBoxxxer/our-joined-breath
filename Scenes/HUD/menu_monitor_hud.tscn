@@ -51,7 +51,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="Control_Right_Butts/Panel/CenterContainer"]
 layout_mode = 2
 text = "Test text
-Тут будет информация о игроке, достижениях, где прогресс"
+Тут будет информация о игроке, достижениях, прогрессе"
 
 [node name="Control_Left_Butts" type="Control" parent="."]
 layout_mode = 3
