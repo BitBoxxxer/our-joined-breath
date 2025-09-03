@@ -25,6 +25,11 @@ buses/default_bus_layout="res://_Ress/Sound/default_bus_layout.tres"
 
 Global="*res://Scripts/Globals/Global.gd"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [dotnet]
 
 project/assembly_name="Our Joined Breath"

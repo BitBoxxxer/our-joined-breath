@@ -1,20 +1,32 @@
 [gd_scene load_steps=2 format=3 uid="uid://5a7axkqf1hty"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ihjwj"]
+size = Vector2(1551, 74)
 
 [node name="TestArea2d" type="Node2D"]
 
 [node name="PlayerData" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 48.0
+offset_top = 40.0
+offset_right = 88.0
+offset_bottom = 80.0
 
 [node name="Camera2D" type="Camera2D" parent="PlayerData"]
+position = Vector2(528, 280)
 
 [node name="MapData" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Area2D" parent="MapData"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MapData/Sprite2D"]
+position = Vector2(536, 632)
 shape = SubResource("RectangleShape2D_ihjwj")
+debug_color = Color(0, 0, 0, 0.42)
+
+[node name="Panel" type="Panel" parent="MapData/Sprite2D/CollisionShape2D"]
+offset_left = -704.0
+offset_top = -8.0
+offset_right = 776.0
+offset_bottom = 40.0
