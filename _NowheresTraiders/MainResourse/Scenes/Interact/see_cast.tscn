@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx7anrmejk7m8"]
+
+[ext_resource type="Script" uid="uid://bes741lpwed8y" path="res://MainResourse/Scripts/Interact/Ray_cast.gd" id="1_d12hw"]
+
+[node name="SeeCast" type="RayCast3D"]
+transform = Transform3D(0.9999761, -0.018014073, -0.0061981315, -0.005739148, 0.78677183, -0.99111974, 0.0038380995, 5.8698616, 0.13282654, 0.0008648634, 0.1395899, -0.7003467)
+script = ExtResource("1_d12hw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BoxContainer" type="BoxContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="IntearctEText" type="Label" parent="CanvasLayer/BoxContainer"]
+layout_mode = 2
+text = "Press \"E\" to interact"
