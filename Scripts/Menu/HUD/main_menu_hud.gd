@@ -35,8 +35,8 @@ func _on_exit_butt_pressed() -> void:
 	pass # Выход из игры - закрытие окна.
 
 
-# Тут тестовое, что нужно далее удалитб
+# Тут тестовое, что нужно далее удалит
 # TODO: Удалить код ниже в будущем
 func _on_button_quick_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Game_Map/3D/TestArea3D.tscn")
+	get_tree().change_scene_to_file("res://_NowheresTraiders/MainResourse/Scenes/shuttle.tscn")
 	# потом переписать на 
