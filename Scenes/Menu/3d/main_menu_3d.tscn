@@ -691,7 +691,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3507, 0)
 light_color = Color(0, 0, 0, 1)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.644939, 0, -0.764234, 0, 1, 0, 0.764234, 0, -0.644939, -2.67329, 0.583994, -2.27356)
+transform = Transform3D(-0.6449391, 0, -0.76423395, 0, 1, 0, 0.76423395, 0, -0.6449391, -2.67329, 0.583994, -2.27356)
 fov = 41.3868
 near = 0.001
 
@@ -709,7 +709,6 @@ light_specular = 3.295
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_opacity = 0.93
-shadow_blur = 0.207
 spot_range = 9.32557
 spot_attenuation = 1.28
 spot_angle = 32.6748

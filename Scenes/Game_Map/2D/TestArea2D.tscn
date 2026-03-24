@@ -1,7 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://5a7axkqf1hty"]
+[gd_scene load_steps=4 format=4 uid="uid://5a7axkqf1hty"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihjwj"]
-size = Vector2(1551, 74)
+[ext_resource type="Texture2D" uid="uid://cqwilygqt82yd" path="res://_Ress/Sprites/icon.svg" id="1_xoub2"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ias5y"]
+texture = ExtResource("1_xoub2")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ihjwj"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_ias5y")
 
 [node name="TestArea2d" type="Node2D"]
 
@@ -16,17 +39,8 @@ offset_bottom = 80.0
 [node name="Camera2D" type="Camera2D" parent="PlayerData"]
 position = Vector2(528, 280)
 
-[node name="MapData" type="Node2D" parent="."]
-
-[node name="Sprite2D" type="Area2D" parent="MapData"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MapData/Sprite2D"]
-position = Vector2(536, 632)
-shape = SubResource("RectangleShape2D_ihjwj")
-debug_color = Color(0, 0, 0, 0.42)
-
-[node name="Panel" type="Panel" parent="MapData/Sprite2D/CollisionShape2D"]
-offset_left = -704.0
-offset_top = -8.0
-offset_right = 776.0
-offset_bottom = 40.0
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+texture_filter = 1
+position = Vector2(600, 864)
+tile_map_data = PackedByteArray("AADp////AAAAAAAAAADq////AAABAAAAAADr////AAACAAAAAADs////AAADAAAAAADt////AAAAAAAAAADu////AAABAAAAAADv////AAACAAAAAADw////AAADAAAAAADx////AAAAAAAAAADy////AAABAAAAAADz////AAACAAAAAAD0////AAADAAAAAAD1////AAAAAAAAAAD2////AAABAAAAAAD3////AAACAAAAAAD4////AAADAAAAAAD5////AAAAAAAAAAD6////AAABAAAAAAD7////AAACAAAAAAD8////AAADAAAAAAD9////AAAAAAAAAAD+////AAABAAAAAAD/////AAACAAAAAAAAAP//AAADAAAAAAABAP//AAAAAAAAAAACAP//AAABAAAAAAADAP//AAACAAAAAAAEAP//AAADAAAAAAAFAP//AAAAAAAAAAAGAP//AAABAAAAAAAHAP//AAACAAAAAAAIAP//AAADAAAAAAAJAP//AAAAAAAAAAAKAP//AAABAAAAAAALAP//AAACAAAAAAAMAP//AAADAAAAAAANAP//AAAAAAAAAAAOAP//AAABAAAAAAAPAP//AAACAAAAAAAQAP//AAADAAAAAAARAP//AAAAAAAAAAASAP//AAABAAAAAAATAP//AAACAAAAAAAUAP//AAADAAAAAAAVAP//AAAAAAAAAAAWAP//AAABAAAAAAAXAP//AAACAAAAAAAYAP//AAADAAAAAAAZAP//AAAAAAAAAAAaAP//AAABAAAAAAAbAP//AAACAAAAAAAcAP//AAADAAAAAADl////AAAAAAAAAADm////AAABAAAAAADn////AAACAAAAAADo////AAADAAAAAADh////AAAAAAAAAADi////AAABAAAAAADj////AAACAAAAAADk////AAADAAAAAAAdAP//AAAAAAAAAAAeAP//AAABAAAAAAAfAP//AAACAAAAAAAgAP//AAADAAAAAADd////AAAAAAAAAADe////AAABAAAAAADf////AAACAAAAAADg////AAADAAAAAAA=")
+tile_set = SubResource("TileSet_ihjwj")
