@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dyhxim30jvy3c"]
+[gd_scene format=3 uid="uid://dyhxim30jvy3c"]
 
 [ext_resource type="PackedScene" uid="uid://y0nvi58fm1dd" path="res://_Ress/3d/Models/table/old_metal_table_low_poly.glb" id="1_6uh6v"]
 [ext_resource type="Script" uid="uid://c02xgbvb4l5sf" path="res://Scripts/Menu/main_menu_3d.gd" id="1_s2ngy"]
@@ -24,7 +24,6 @@ glow_normalized = true
 glow_intensity = 0.47
 glow_strength = 1.45
 glow_bloom = 0.1
-glow_blend_mode = 1
 fog_light_energy = 0.0
 fog_sky_affect = 0.0
 volumetric_fog_enabled = true
@@ -679,28 +678,26 @@ _data = {
 &"all_shutDown": SubResource("Animation_k0gs5")
 }
 
-[node name="Menu" type="Node3D"]
+[node name="Menu" type="Node3D" unique_id=1479506452]
 script = ExtResource("1_s2ngy")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2068369532]
 physics_interpolation_mode = 2
 environment = SubResource("Environment_h3ldb")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1426810439]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3507, 0)
 light_color = Color(0, 0, 0, 1)
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2040734722]
 transform = Transform3D(-0.6449391, 0, -0.76423395, 0, 1, 0, 0.76423395, 0, -0.6449391, -2.67329, 0.583994, -2.27356)
 fov = 41.3868
 near = 0.001
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
-libraries = {
-&"": SubResource("AnimationLibrary_6rkge")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D" unique_id=707978889]
+libraries/ = SubResource("AnimationLibrary_6rkge")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1115233183]
 transform = Transform3D(0.401928, 0.241622, 0.883217, -0.82021, 0.523809, 0.229957, -0.407074, -0.81685, 0.408714, 3.93385, 2.2707, -2.2737)
 light_color = Color(0.142957, 0.543698, 0.567166, 1)
 light_energy = 80.0
@@ -714,66 +711,62 @@ spot_attenuation = 1.28
 spot_angle = 32.6748
 spot_angle_attenuation = 0.0412346
 
-[node name="AP_SpotLight" type="AnimationPlayer" parent="SpotLight3D"]
-libraries = {
-&"": SubResource("AnimationLibrary_hi8aa")
-}
+[node name="AP_SpotLight" type="AnimationPlayer" parent="SpotLight3D" unique_id=433823566]
+libraries/ = SubResource("AnimationLibrary_hi8aa")
 
-[node name="Timer" type="Timer" parent="SpotLight3D"]
+[node name="Timer" type="Timer" parent="SpotLight3D" unique_id=1654124513]
 wait_time = 17.0
 autostart = true
 
-[node name="models" type="Node" parent="."]
+[node name="models" type="Node" parent="." unique_id=347711086]
 
-[node name="table" parent="models" instance=ExtResource("1_6uh6v")]
+[node name="table" parent="models" unique_id=1214633174 instance=ExtResource("1_6uh6v")]
 transform = Transform3D(0.0111314, 0, -1.95552, 0, 1, 0, 1.83797, 0, 0.0118433, -0.2537, -0.0434501, -2.31631)
 
-[node name="monitor1" parent="models" instance=ExtResource("3_s2ngy")]
+[node name="monitor1" parent="models" unique_id=287020130 instance=ExtResource("3_s2ngy")]
 transform = Transform3D(0.548091, 0, 0.0187706, 0, 0.796747, 0, -0.151474, 0, 0.0679194, -1.87325, 1.22888, -2.71653)
 
-[node name="light_chM" type="MeshInstance3D" parent="models/monitor1"]
+[node name="light_chM" type="MeshInstance3D" parent="models/monitor1" unique_id=1703468960]
 transform = Transform3D(0.913867, 1.86265e-09, -3.33067e-16, 0, -4.26541e-08, -1, -4.76837e-07, 0.975813, -4.37114e-08, -0.0394864, 0, 1.15298)
 material_override = ExtResource("4_gr1bq")
 mesh = SubResource("PlaneMesh_6rkge")
 skeleton = NodePath("../../..")
 
-[node name="monitor2" parent="models" instance=ExtResource("3_s2ngy")]
+[node name="monitor2" parent="models" unique_id=960769353 instance=ExtResource("3_s2ngy")]
 transform = Transform3D(-0.00165599, -0.796743, 8.49682e-06, 0.568148, -0.00232228, -0.00291514, 0.0235245, 0, 0.0704051, -0.332172, 1.15813, -2.71653)
 
-[node name="light_chM" type="MeshInstance3D" parent="models/monitor2"]
+[node name="light_chM" type="MeshInstance3D" parent="models/monitor2" unique_id=752816208]
 transform = Transform3D(0.933941, -4.65661e-10, 1.17413e-09, 1.22361e-10, -4.38295e-08, -0.999807, -2.38419e-07, 1.00274, -4.3783e-08, 0.0248759, -0.000133991, 1.13147)
 material_override = ExtResource("5_s480y")
 mesh = SubResource("PlaneMesh_6rkge")
 skeleton = NodePath("../../..")
 
-[node name="monitor3" parent="models" instance=ExtResource("3_s2ngy")]
+[node name="monitor3" parent="models" unique_id=159975773 instance=ExtResource("3_s2ngy")]
 transform = Transform3D(0.552705, 0, -0.0165634, 0, 0.796747, 0, 0.133662, 0, 0.0684911, 1.26642, 1.51504, -2.73018)
 
-[node name="light_chM" type="MeshInstance3D" parent="models/monitor3"]
+[node name="light_chM" type="MeshInstance3D" parent="models/monitor3" unique_id=1847945739]
 transform = Transform3D(0.902169, 0, 0, 0, -4.47692e-08, -0.999999, 1.19209e-07, 1.0242, -4.37114e-08, 0.0556158, 0, 1.15082)
 material_override = ExtResource("6_ksehr")
 mesh = SubResource("PlaneMesh_6rkge")
 skeleton = NodePath("../../..")
 
-[node name="AP_Monitors" type="AnimationPlayer" parent="models"]
-libraries = {
-&"": SubResource("AnimationLibrary_dg13f")
-}
+[node name="AP_Monitors" type="AnimationPlayer" parent="models" unique_id=474424698]
+libraries/ = SubResource("AnimationLibrary_dg13f")
 
-[node name="AudioSP3D" type="AudioStreamPlayer3D" parent="."]
+[node name="AudioSP3D" type="AudioStreamPlayer3D" parent="." unique_id=352633491]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.729347, 1.36263, 1.28827)
 stream = ExtResource("6_lge20")
 volume_db = -12.0
 
-[node name="UI" type="Control" parent="."]
+[node name="UI" type="Control" parent="." unique_id=2051629419]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="MainMenuHud" parent="UI" instance=ExtResource("5_6rkge")]
+[node name="MainMenuHud" parent="UI" unique_id=1389929533 instance=ExtResource("5_6rkge")]
 
-[node name="Menu_Monitor_HUD" parent="UI" instance=ExtResource("9_ksehr")]
+[node name="Menu_Monitor_HUD" parent="UI" unique_id=7444279 instance=ExtResource("9_ksehr")]
 
 [connection signal="animation_finished" from="Camera3D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="SpotLight3D/AP_SpotLight" to="." method="_on_ap_spot_light_animation_finished"]

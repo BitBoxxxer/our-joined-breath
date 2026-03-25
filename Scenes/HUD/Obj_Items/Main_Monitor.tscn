@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://2xnbdgyd0vp4"]
+
+[ext_resource type="Script" uid="uid://b3slngmy02oea" path="res://Scenes/HUD/Obj_Items/main_monitor.gd" id="1_3lx5o"]
+
+[node name="Monitor" type="CanvasLayer" unique_id=304158799]
+script = ExtResource("1_3lx5o")
+
+[node name="Panel" type="Panel" parent="." unique_id=1410243974]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="." unique_id=856959398]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "Выйти в космос ?"
+
+[node name="Button_exit" type="Button" parent="." unique_id=833034502]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 30
+text = "Выйти в шаттл"
+
+[connection signal="pressed" from="Button_exit" to="." method="_on_button_exit_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bduipm5o65jjh"]
+[gd_scene format=3 uid="uid://bduipm5o65jjh"]
 
 [ext_resource type="Script" uid="uid://bbnnblmnykd07" path="res://Scenes/Menu/menu_monitor_hud.gd" id="1_4lqij"]
 
@@ -14,10 +14,10 @@ corner_detail = 2
 bg_color = Color(0.0196078, 0.0196078, 0.0196078, 0.309804)
 border_color = Color(0.8, 0.8, 0.8, 0)
 
-[node name="Menu_Monitor_HUD" type="CanvasLayer"]
+[node name="Menu_Monitor_HUD" type="CanvasLayer" unique_id=1476416645]
 script = ExtResource("1_4lqij")
 
-[node name="Control_Right_Butts" type="Control" parent="."]
+[node name="Control_Right_Butts" type="Control" parent="." unique_id=1466598241]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,7 +25,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="Control_Right_Butts"]
+[node name="Panel" type="Panel" parent="Control_Right_Butts" unique_id=734859891]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -40,7 +40,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_yehqg")
 
-[node name="CenterContainer" type="CenterContainer" parent="Control_Right_Butts/Panel"]
+[node name="CenterContainer" type="CenterContainer" parent="Control_Right_Butts/Panel" unique_id=1852834252]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -48,12 +48,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Control_Right_Butts/Panel/CenterContainer"]
+[node name="Label" type="Label" parent="Control_Right_Butts/Panel/CenterContainer" unique_id=1227784780]
 layout_mode = 2
 text = "Test text
 Тут будет информация о игроке, достижениях, прогрессе"
 
-[node name="Control_Left_Butts" type="Control" parent="."]
+[node name="Control_Left_Butts" type="Control" parent="." unique_id=307757853]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -61,7 +61,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="Control_Left_Butts"]
+[node name="Panel" type="Panel" parent="Control_Left_Butts" unique_id=1145765535]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -76,7 +76,7 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4lqij")
 
-[node name="CenterContainer" type="CenterContainer" parent="Control_Left_Butts/Panel"]
+[node name="CenterContainer" type="CenterContainer" parent="Control_Left_Butts/Panel" unique_id=122452610]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -84,47 +84,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control_Left_Butts/Panel/CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control_Left_Butts/Panel/CenterContainer" unique_id=885624485]
 layout_mode = 2
 theme_override_constants/separation = 120
 alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Control_Left_Butts/Panel/CenterContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Control_Left_Butts/Panel/CenterContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-bbcode_enabled = true
-text = "Уровень сложности:"
-fit_content = true
-
-[node name="difficulty_level" type="OptionButton" parent="Control_Left_Butts/Panel/CenterContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-item_count = 4
-popup/item_0/text = "Пока - так"
-popup/item_0/id = 0
-popup/item_0/separator = true
-popup/item_1/text = "Easy"
-popup/item_1/id = 1
-popup/item_1/disabled = true
-popup/item_2/text = "Medium"
-popup/item_2/id = 2
-popup/item_3/text = "Hard"
-popup/item_3/id = 3
-popup/item_3/disabled = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control_Left_Butts/Panel/CenterContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control_Left_Butts/Panel/CenterContainer/HBoxContainer" unique_id=482352424]
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="NewGame_Butt" type="Button" parent="Control_Left_Butts/Panel/CenterContainer/HBoxContainer/VBoxContainer"]
+[node name="NewGame_Butt" type="Button" parent="Control_Left_Butts/Panel/CenterContainer/HBoxContainer/VBoxContainer" unique_id=35823913]
 layout_mode = 2
 text = "Новая Игра"
 
-[node name="Cont_Butt" type="Button" parent="Control_Left_Butts/Panel/CenterContainer/HBoxContainer/VBoxContainer"]
+[node name="Cont_Butt" type="Button" parent="Control_Left_Butts/Panel/CenterContainer/HBoxContainer/VBoxContainer" unique_id=1777057573]
 layout_mode = 2
 text = "Продолжить"
 
-[connection signal="item_selected" from="Control_Left_Butts/Panel/CenterContainer/HBoxContainer/VBoxContainer2/difficulty_level" to="." method="_on_difficulty_level_item_selected"]
 [connection signal="pressed" from="Control_Left_Butts/Panel/CenterContainer/HBoxContainer/VBoxContainer/NewGame_Butt" to="." method="_on_new_game_butt_pressed"]
 [connection signal="pressed" from="Control_Left_Butts/Panel/CenterContainer/HBoxContainer/VBoxContainer/Cont_Butt" to="." method="_on_cont_butt_pressed"]

@@ -16,10 +16,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("run"):
 		SPEED = 8.0
 	else: SPEED = 5.0
-	
-	# Потом передавать глобальный сигнал
-	#if Input.is_action_just_pressed("Select"):
-		#null
 		
 
 	var input_dir := Input.get_vector("left", "right", "forward", "backward")
