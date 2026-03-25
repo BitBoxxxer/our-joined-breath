@@ -1,3 +1,48 @@
 [gd_scene format=3 uid="uid://deewv1meyo6a5"]
 
-[node name="TestArea3d" type="Node3D"]
+[ext_resource type="PackedScene" uid="uid://s2xbw7mjmiwo" path="res://_NowheresTraiders/MainResourse/Scenes/player.tscn" id="1_woex5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tuemb"]
+size = Vector3(2.0234764, 1.0556641, 2.039287)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ojmuf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pxqup"]
+
+[sub_resource type="Environment" id="Environment_g8fet"]
+
+[node name="TestArea3d" type="Node3D" unique_id=1715471426]
+
+[node name="floor" type="StaticBody3D" parent="." unique_id=1218460720]
+transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor" unique_id=1281227872]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004835969, -0.027832031, 0.00600397)
+shape = SubResource("BoxShape3D_tuemb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor" unique_id=2087630581]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("BoxMesh_ojmuf")
+
+[node name="Player" parent="." unique_id=1987095532 instance=ExtResource("1_woex5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9829674, 1.1182468, 0)
+
+[node name="cube" type="StaticBody3D" parent="." unique_id=1340225507]
+transform = Transform3D(5, 0, 0, 0, 10, 0, 0, 0, 5, -5.869911, 9.5291, 5.808198)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cube" unique_id=1250108197]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0007240176, -0.004746437, -0.00011014938)
+mesh = SubResource("BoxMesh_ojmuf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cube" unique_id=1601387278]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.022302628, 0)
+shape = SubResource("BoxShape3D_pxqup")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=779042815]
+transform = Transform3D(0.5421993, 0.5634894, -0.6232975, 0.62761915, 0.2216174, 0.74631095, 0.55867183, -0.79584265, -0.23349589, 0.09547615, 11.383603, 0)
+light_color = Color(0.9151378, 0.90470994, 0.9838193, 1)
+light_energy = 0.863
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1231582715]
+environment = SubResource("Environment_g8fet")

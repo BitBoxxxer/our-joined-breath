@@ -12,7 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="." unique_id=856959398]
+[node name="Button_start" type="Button" parent="." unique_id=856959398]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -35,4 +35,5 @@ offset_bottom = 8.0
 theme_override_font_sizes/font_size = 30
 text = "Выйти в шаттл"
 
+[connection signal="pressed" from="Button_start" to="." method="_on_button_start_pressed"]
 [connection signal="pressed" from="Button_exit" to="." method="_on_button_exit_pressed"]
