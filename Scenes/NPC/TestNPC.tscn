@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://q2rwurhhtwfe"]
+
+[ext_resource type="Script" uid="uid://iuo6582ke1cg" path="res://_NowheresTraiders/MainResourse/Scripts/Interact/interactable.gd" id="1_mc2ni"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tuv8g"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_mc2ni"]
+
+[node name="Npc" type="CharacterBody3D" unique_id=717504656]
+script = ExtResource("1_mc2ni")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1098941685]
+shape = SubResource("CapsuleShape3D_tuv8g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1542532524]
+mesh = SubResource("CapsuleMesh_mc2ni")

@@ -8,6 +8,7 @@ func _process(_delta):
 	if is_colliding():
 		inter_label.visible = true
 		var collider = get_collider()
+		print(collider.name)
 		
 		if collider is Interactable:
 			inter_label.text = collider.prompt_message
