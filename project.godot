@@ -28,6 +28,7 @@ buses/default_bus_layout="res://_Ress/Sound/default_bus_layout.tres"
 [autoload]
 
 Global="*res://Scripts/Globals/Global.gd"
+DialogueManager="*uid://bqr44br46r78h"
 
 [display]
 
@@ -46,12 +47,15 @@ folder_colors={
 "res://Scenes/Player/": "blue",
 "res://Scripts/": "orange",
 "res://Sound/": "blue",
-"res://_NowheresTraiders/": "gray",
 "res://_Ress/": "green",
 "res://_Ress/3d/": "purple",
 "res://_Ress/3d/effects/": "purple",
 "res://_Ress/Sprites/": "yellow"
 }
+
+[global_group]
+
+Player=""
 
 [input]
 

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://s2xbw7mjmiwo"]
 
-[ext_resource type="Script" uid="uid://l16gtw0on0fj" path="res://_NowheresTraiders/MainResourse/Scripts/player.gd" id="1_o5nbp"]
-[ext_resource type="Script" uid="uid://c5kgqimi1muy0" path="res://_NowheresTraiders/MainResourse/Scripts/head.gd" id="2_axbm6"]
-[ext_resource type="PackedScene" uid="uid://bx7anrmejk7m8" path="res://_NowheresTraiders/MainResourse/Scenes/Interact/see_cast.tscn" id="3_viea6"]
+[ext_resource type="Script" uid="uid://l16gtw0on0fj" path="res://Scripts/Player/player.gd" id="1_o5nbp"]
+[ext_resource type="Script" uid="uid://c5kgqimi1muy0" path="res://Scripts/Player/head.gd" id="2_axbm6"]
+[ext_resource type="PackedScene" uid="uid://bx7anrmejk7m8" path="res://Scenes/Player/Interact/see_cast.tscn" id="3_viea6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_stsl8"]
 size = Vector3(1.1157227, 1, 1.1977539)
@@ -15,7 +15,7 @@ size = Vector3(0.2, 0.2, 0.2)
 [sub_resource type="BoxMesh" id="BoxMesh_axbm6"]
 size = Vector3(0.2, 0.2, 0.2)
 
-[node name="Player" type="CharacterBody3D" unique_id=1987095532]
+[node name="Player" type="CharacterBody3D" unique_id=1987095532 groups=["Player"]]
 script = ExtResource("1_o5nbp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=717693914]
