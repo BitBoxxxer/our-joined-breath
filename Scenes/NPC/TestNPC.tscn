@@ -1,16 +1,35 @@
 [gd_scene format=3 uid="uid://q2rwurhhtwfe"]
 
 [ext_resource type="Script" uid="uid://da65dsjcaxcqm" path="res://Scenes/NPC/test_npc.gd" id="1_mc2ni"]
+[ext_resource type="Script" uid="uid://bchmgrowfiyxc" path="res://Scripts/camera_shot.gd" id="2_uk1wc"]
+[ext_resource type="PackedScene" uid="uid://keidq8u5eslq" path="res://_Ress/Camera_shot_mrk.tscn" id="3_2j0rf"]
+
+[sub_resource type="Resource" id="Resource_2j0rf"]
+script = ExtResource("2_uk1wc")
+position = Vector3(-1, 1, -2.4)
+metadata/_custom_type_script = "uid://bchmgrowfiyxc"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tuv8g"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mc2ni"]
 
-[node name="NPC" type="CharacterBody3D" unique_id=717504656]
+[sub_resource type="PrismMesh" id="PrismMesh_uk1wc"]
+size = Vector3(0.2, 0.8, 0.9)
+
+[node name="NPC" type="CharacterBody3D" unique_id=717504656 node_paths=PackedStringArray("camera_focus")]
 script = ExtResource("1_mc2ni")
+camera_shots = Array[ExtResource("2_uk1wc")]([SubResource("Resource_2j0rf")])
+camera_focus = NodePath(".")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1098941685]
 shape = SubResource("CapsuleShape3D_tuv8g")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1542532524]
 mesh = SubResource("CapsuleMesh_mc2ni")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1218367021]
+transform = Transform3D(-4.371139e-08, 0, 1, 1, -4.371139e-08, 4.371139e-08, 4.371139e-08, 1, 1.9106855e-15, 0, 0.6032729, -0.27299988)
+mesh = SubResource("PrismMesh_uk1wc")
+
+[node name="CameraShotMrk" parent="." unique_id=257876795 instance=ExtResource("3_2j0rf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -2.4)

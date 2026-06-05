@@ -1,7 +1,15 @@
 extends Interactable
 class_name NPC
 
+# Массив настроек ракурсов (создаёшь в инспекторе)
+@export var camera_shots: Array[CameraShot] = []
+# Длительность одного ракурса при циклической смене
+@export var shot_duration: float = 3.0
+# Циклически переключать ракурсы или стоять на первом
+@export var cycle_shots: bool = false
+
 # Диалог в формате: блоки текста или выбора
+@export var camera_focus: Node3D = null
 @export var dialogue_blocks: Array = []
 
 func _ready():

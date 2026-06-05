@@ -34,6 +34,12 @@ func start_dialogue(npc: NPC, block_list: Array):
 			return
 
 	dialogue_ui.show()
+	# Управление камерой
+	if current_npc and current_npc.camera_focus:
+		if player:
+			var head = player.get_node("head")   # путь к твоему head внутри Player
+			if head and head.has_method("look_at_target"):
+				head.look_at_target(current_npc.camera_focus)
 	emit_signal("dialogue_started")
 	_display_current_block()
 
@@ -50,6 +56,10 @@ func end_dialogue():
 	current_npc = null
 	blocks.clear()
 	current_block_index = 0
+	if player:
+		var head = player.get_node("head")
+		if head and head.has_method("reset_look"):
+			head.reset_look()
 	emit_signal("dialogue_ended")
 
 func _display_current_block():

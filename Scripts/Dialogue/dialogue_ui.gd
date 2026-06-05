@@ -5,13 +5,11 @@ extends Control
 @onready var continue_button: Button = $VBoxContainer/ContinueButton
 
 func _ready():
-	# Передаём ссылку менеджеру
 	DialogueManager.dialogue_ui = self
-	# Подписываемся на сигнал нового блока
 	DialogueManager.block_displayed.connect(_display_block)
-	hide()
-
+	continue_button.text = "Продолжить"
 	continue_button.pressed.connect(_on_continue_pressed)
+	hide()
 
 func _display_block(block):
 	# Очищаем старые кнопки выбора
