@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bl7qvf4ce1pfs"]
+
+[ext_resource type="PackedScene" uid="uid://s2xbw7mjmiwo" path="res://Scenes/Player/player.tscn" id="1_sw4nl"]
+[ext_resource type="PackedScene" uid="uid://q2rwurhhtwfe" path="res://Scenes/NPC/TestNPC.tscn" id="2_462pa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qkuwt"]
+size = Vector3(2.0234764, 1.4994507, 2.039287)
+
+[sub_resource type="BoxMesh" id="BoxMesh_205hh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_npryp"]
+
+[sub_resource type="Environment" id="Environment_205hh"]
+
+[node name="Test_Scene" type="Node3D" unique_id=1783875585]
+
+[node name="floor" type="StaticBody3D" parent="." unique_id=1772641214]
+transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor" unique_id=2092218240]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.12486267, 0)
+shape = SubResource("BoxShape3D_qkuwt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor" unique_id=1494294014]
+mesh = SubResource("BoxMesh_205hh")
+
+[node name="Player" parent="." unique_id=847341726 instance=ExtResource("1_sw4nl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9829674, 1.1182468, 0)
+
+[node name="CameraPivot" parent="Player" index="2" unique_id=1863508977]
+rotation_smoothness = 15.0
+
+[node name="cube" type="StaticBody3D" parent="." unique_id=941369130]
+transform = Transform3D(10, 0, 0, 0, 5, 0, 0, 0, 10, -6.0281034, 2.7820358, 5.808198)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cube" unique_id=64351623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0007240176, -0.004746437, -0.00011014938)
+mesh = SubResource("BoxMesh_205hh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cube" unique_id=1168265267]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07598573, 0)
+shape = SubResource("BoxShape3D_npryp")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=591384928]
+transform = Transform3D(0.82549787, 0.35046327, -0.4424125, 0, 0.78385603, 0.6209426, 0.56440526, -0.5125868, 0.6470715, 0.09547615, 11.383603, 0)
+light_color = Color(0.99147636, 0.91432947, 0.6546521, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=745527823]
+environment = SubResource("Environment_205hh")
+
+[node name="NPC" parent="." unique_id=717504656 instance=ExtResource("2_462pa")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 2, -5)
+prompt_message = "Взаимодействовать с НТЛ ?"
+
+[editable path="Player"]

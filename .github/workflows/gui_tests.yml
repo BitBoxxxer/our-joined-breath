@@ -1,0 +1,48 @@
+name: Проверка проекта Godot
+
+on: [push, pull_request]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Установка Godot
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: '4.6.2'
+
+      - name: Импорт проекта
+        run: godot --headless --import --quit
+
+      - name: Валидация сценариев
+        shell: bash
+        run: |
+          godot --headless --check-only --debug --quit 2>&1 | tee validation_output.txt
+
+          if grep -qiE "ERROR|ОШИБКА|Не найден" validation_output.txt; then
+            echo "::error::Обнаружены ошибки валидации (подробный список ниже)"
+            exit 1
+          fi
+
+      - name: Список найденных ошибок
+        if: failure()   # запускается только если предыдущий шаг упал
+        run: |
+          echo "## Найденные ошибки валидации"
+          echo ""
+
+          errors=$(grep -iE "ERROR|ОШИБКА|Не найден" validation_output.txt | grep -v "::error::" || true)
+
+          if [ -z "$errors" ]; then
+            echo "Не удалось извлечь строки ошибок."
+          else
+            while IFS= read -r line; do
+              echo "::error::$line"
+            done <<< "$errors"
+          fi
+
+          echo ""
+          echo "Выше - полный перечень критических проблем."
+
+          exit 1

@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://s2xbw7mjmiwo"]
+
+[ext_resource type="Script" uid="uid://l16gtw0on0fj" path="res://Scripts/Player/player.gd" id="1_o5nbp"]
+[ext_resource type="Script" uid="uid://c5kgqimi1muy0" path="res://Scripts/Player/camera_rig.gd" id="2_axbm6"]
+[ext_resource type="PackedScene" uid="uid://bx7anrmejk7m8" path="res://Scenes/Player/Interact/see_cast.tscn" id="3_viea6"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xpcdj"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_mtuoh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_axbm6"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_axbm6"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="PrismMesh" id="PrismMesh_htcer"]
+size = Vector3(0.2, 0.8, 0.9)
+
+[node name="Player" type="CharacterBody3D" unique_id=1987095532 groups=["Player"]]
+script = ExtResource("1_o5nbp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=717693914]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00024414063, 0, -0.00024414063)
+shape = SubResource("CapsuleShape3D_xpcdj")
+
+[node name="Model" type="Node3D" parent="." unique_id=1769571712]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Model" unique_id=1769571713]
+mesh = SubResource("CapsuleMesh_mtuoh")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Model" unique_id=1274228167]
+transform = Transform3D(-4.371139e-08, 0, 1, 1, -4.371139e-08, 4.371139e-08, 4.371139e-08, 1, 1.9106855e-15, 0, 0.6032729, -0.27299988)
+mesh = SubResource("PrismMesh_htcer")
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=1863508977]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+script = ExtResource("2_axbm6")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot" unique_id=1443013245]
+spring_length = 4.0
+margin = 0.2
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D" unique_id=1443013244]
+fov = 75.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraPivot/SpringArm3D/Camera3D" unique_id=1464229325]
+shape = SubResource("BoxShape3D_axbm6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CameraPivot/SpringArm3D/Camera3D" unique_id=1953261687]
+visible = false
+mesh = SubResource("BoxMesh_axbm6")
+
+[node name="SeeCast" parent="CameraPivot/SpringArm3D/Camera3D" unique_id=186597117 instance=ExtResource("3_viea6")]
+target_position = Vector3(0, 0, -10)

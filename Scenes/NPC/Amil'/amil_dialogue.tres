@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="DialogueTree" format=3 uid="uid://cdsyok3mv1jjm"]
+
+[ext_resource type="Script" uid="uid://2w76lox8smnc" path="res://Scripts/Dialogue/DialogueTree.gd" id="1_tree"]
+[ext_resource type="Script" uid="uid://b6y454j4dgsgo" path="res://Scripts/Dialogue/DialogueLine.gd" id="2_line"]
+[ext_resource type="Script" uid="uid://oyberqfdag46" path="res://Scripts/Dialogue/DialogueChoice.gd" id="3_choice"]
+
+[sub_resource type="Resource" id="Line_greet"]
+script = ExtResource("2_line")
+speaker = "Амиль"
+text = "Привет, путник. Не часто здесь кто-то проходит."
+
+[sub_resource type="Resource" id="Choice_ask"]
+script = ExtResource("3_choice")
+text = "Привет! Кто ты?"
+next_index = 2
+
+[sub_resource type="Resource" id="Choice_rush"]
+script = ExtResource("3_choice")
+text = "Мне некогда."
+next_index = 3
+
+[sub_resource type="Resource" id="Line_choice"]
+script = ExtResource("2_line")
+type = 1
+choices = Array[ExtResource("3_choice")]([SubResource("Choice_ask"), SubResource("Choice_rush")])
+
+[sub_resource type="Resource" id="Line_intro"]
+script = ExtResource("2_line")
+speaker = "Амиль"
+text = "Я странник, как и ты. Ищу место, где мир не рассыплется под ногами."
+set_flags = {
+"met_amil": true
+}
+
+[sub_resource type="Resource" id="Line_bye"]
+script = ExtResource("2_line")
+speaker = "Амиль"
+text = "Береги себя. Здесь легко потеряться."
+
+[sub_resource type="Resource" id="Line_bye_again"]
+script = ExtResource("2_line")
+speaker = "Амиль"
+text = "Снова ты? Как самочувствие в этом мире?"
+condition = "met_amil"
+
+[resource]
+script = ExtResource("1_tree")
+lines = Array[ExtResource("2_line")]([SubResource("Line_greet"), SubResource("Line_choice"), SubResource("Line_intro"), SubResource("Line_bye"), SubResource("Line_bye_again")])

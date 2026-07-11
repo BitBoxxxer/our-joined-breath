@@ -9,7 +9,7 @@ func _process(delta: float) -> void:
 
 
 func _on_button_exit_pressed() -> void:
-	get_tree().change_scene_to_file("res://_NowheresTraiders/MainResourse/Scenes/shuttle.tscn")
+	get_tree().change_scene_to_file("res://_NowheresTraiders/MainResourse/Scenes/3dMainSceneTest.tscn")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 

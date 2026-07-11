@@ -40,6 +40,6 @@ func _on_exit_butt_pressed() -> void:
 # Тут тестовое, что нужно далее удалит
 # TODO: Удалить код ниже в будущем
 func _on_button_quick_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://_NowheresTraiders/MainResourse/Scenes/shuttle.tscn")
+	get_tree().change_scene_to_file("res://_NowheresTraiders/MainResourse/Scenes/3dMainSceneTest.tscn")
 	# потом переписать на основное место меню.
 	# 
