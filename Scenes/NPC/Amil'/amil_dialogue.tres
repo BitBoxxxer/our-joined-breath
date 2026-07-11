@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DialogueTree" format=3 uid="uid://cdsyok3mv1jjm"]
+[gd_resource type="Resource" script_class="DialogueTree" format=3 uid="uid://dlhqh3ks1enyv"]
 
 [ext_resource type="Script" uid="uid://2w76lox8smnc" path="res://Scripts/Dialogue/DialogueTree.gd" id="1_tree"]
 [ext_resource type="Script" uid="uid://b6y454j4dgsgo" path="res://Scripts/Dialogue/DialogueLine.gd" id="2_line"]
