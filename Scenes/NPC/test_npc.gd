@@ -8,24 +8,15 @@ class_name NPC
 # Циклически переключать ракурсы или стоять на первом
 @export var cycle_shots: bool = false
 
-# Диалог в формате: блоки текста или выбора
 @export var camera_focus: Node3D = null
-@export var dialogue_blocks: Array = []
 
-func _ready():
-	# Если блоки не заданы – пример диалога по умолчанию
-	if dialogue_blocks.is_empty():
-		dialogue_blocks = [
-			{ "type": "text", "speaker": "npc", "text": "Привет, путник." },
-			{ "type": "choice", "choices": [
-				{ "text": "Привет! Кто ты?", "next_index": 2 },
-				{ "text": "Мне некогда.", "next_index": 3 }
-			]},
-			{ "type": "text", "speaker": "npc", "text": "Я странник, как и ты." },
-			{ "type": "text", "speaker": "npc", "text": "Береги себя." }
-			# Можно добавить ещё блоков или завершить здесь
-		]
+## Диалог этого NPC. Собирается как отдельный .tres-ресурс (DialogueTree)
+## и назначается прямо в инспекторе — никакого хардкода в коде.
+@export var dialogue: DialogueTree = null
+
 
 func interact() -> void:
-	# Запускаем диалог через глобальный менеджер
-	DialogueManager.start_dialogue(self, dialogue_blocks)
+	if dialogue == null or dialogue.lines.is_empty():
+		printerr("[NPC] У ", name, " не назначен диалог (dialogue = null или пуст).")
+		return
+	DialogueManager.start_dialogue(self, dialogue)

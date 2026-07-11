@@ -2,22 +2,27 @@ extends Node
 
 signal dialogue_started
 signal dialogue_ended
-signal block_displayed(block)
+signal line_displayed(line: DialogueLine)
 
 var current_npc: NPC = null
-var blocks: Array = []
-var current_block_index: int = 0
+var lines: Array[DialogueLine] = []
+var current_index: int = 0
 var is_active: bool = false
 
 # Ссылка на UI (установится автоматически)
 var dialogue_ui: Control = null
 
-func start_dialogue(npc: NPC, block_list: Array):
+
+func start_dialogue(npc: NPC, tree: DialogueTree) -> void:
 	if is_active:
 		return
+	if tree == null or tree.lines.is_empty():
+		printerr("DialogueManager: попытка начать пустой диалог у ", npc.name)
+		return
+
 	current_npc = npc
-	blocks = block_list.duplicate()
-	current_block_index = 0
+	lines = tree.lines
+	current_index = 0
 	is_active = true
 
 	# Блокируем управление игроком
@@ -34,61 +39,80 @@ func start_dialogue(npc: NPC, block_list: Array):
 			return
 
 	dialogue_ui.show()
+
 	# Управление камерой
 	if current_npc and current_npc.camera_focus:
 		if player:
-			var head = player.get_node("head")   # путь к твоему head внутри Player
+			var head = player.get_node("CameraPivot")
 			if head and head.has_method("look_at_target"):
 				head.look_at_target(current_npc.camera_focus)
-	emit_signal("dialogue_started")
-	_display_current_block()
 
-func end_dialogue():
+	dialogue_started.emit()
+	_display_current_line()
+
+
+func end_dialogue() -> void:
 	if not is_active:
 		return
 	is_active = false
+
 	var player = get_tree().get_first_node_in_group("Player")
 	if player:
 		player.set_process_input(true)
 		player.set_physics_process(true)
 	if dialogue_ui:
 		dialogue_ui.hide()
-	current_npc = null
-	blocks.clear()
-	current_block_index = 0
+
 	if player:
-		var head = player.get_node("head")
+		var head = player.get_node("CameraPivot")
 		if head and head.has_method("reset_look"):
 			head.reset_look()
-	emit_signal("dialogue_ended")
 
-func _display_current_block():
-	if current_block_index >= blocks.size():
+	current_npc = null
+	lines = []
+	current_index = 0
+	dialogue_ended.emit()
+
+
+func _display_current_line() -> void:
+	# Пропускаем строки, чьё условие не выполнено
+	while current_index < lines.size() and not lines[current_index].is_available():
+		current_index += 1
+
+	if current_index >= lines.size():
 		end_dialogue()
 		return
-	var block = blocks[current_block_index]
-	emit_signal("block_displayed", block)
 
-func advance_dialogue():
+	var line := lines[current_index]
+	line.apply_flags()
+	line_displayed.emit(line)
+
+
+func advance_dialogue() -> void:
 	if not is_active:
 		return
-	var block = blocks[current_block_index]
-	if block.type == "text":
-		current_block_index += 1
-		_display_current_block()
-	# Если это блок выбора – ждём, пока игрок выберет вариант
+	var line := lines[current_index]
+	if line.type == DialogueLine.Type.TEXT:
+		current_index += 1
+		_display_current_line()
+	# Если это выбор — ждём, пока игрок нажмёт вариант (см. select_option)
 
-func select_option(option_index: int):
+
+func select_option(option_index: int) -> void:
 	if not is_active:
 		return
-	var block = blocks[current_block_index]
-	if block.type != "choice":
+	var line := lines[current_index]
+	if line.type != DialogueLine.Type.CHOICE:
 		return
-	if option_index < 0 or option_index >= block.choices.size():
+
+	if option_index < 0 or option_index >= line.choices.size():
 		return
-	var next_index = block.choices[option_index].get("next_index", -1)
-	if next_index >= 0:
-		current_block_index = next_index
+
+	var choice := line.choices[option_index]
+	choice.apply_flags()
+
+	if choice.next_index >= 0:
+		current_index = choice.next_index
 	else:
-		current_block_index += 1   # по умолчанию следующий блок
-	_display_current_block()
+		current_index += 1
+	_display_current_line()

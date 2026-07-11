@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://da65dsjcaxcqm" path="res://Scenes/NPC/test_npc.gd" id="1_mc2ni"]
 [ext_resource type="Script" uid="uid://bchmgrowfiyxc" path="res://Scripts/camera_shot.gd" id="2_uk1wc"]
 [ext_resource type="PackedScene" uid="uid://keidq8u5eslq" path="res://_Ress/Camera_shot_mrk.tscn" id="3_2j0rf"]
+[ext_resource type="Resource" path="res://Scenes/NPC/Amil'/amil_dialogue.tres" id="4_dlg"]
 
 [sub_resource type="Resource" id="Resource_2j0rf"]
 script = ExtResource("2_uk1wc")
@@ -20,6 +21,7 @@ size = Vector3(0.2, 0.8, 0.9)
 script = ExtResource("1_mc2ni")
 camera_shots = Array[ExtResource("2_uk1wc")]([SubResource("Resource_2j0rf")])
 camera_focus = NodePath(".")
+dialogue = ExtResource("4_dlg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1098941685]
 shape = SubResource("CapsuleShape3D_tuv8g")
