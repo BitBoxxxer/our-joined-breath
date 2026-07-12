@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" path="res://Items/rusty_key_pickup.tscn" id="1_6clia"]
 [ext_resource type="PackedScene" uid="uid://s2xbw7mjmiwo" path="res://Scenes/Player/player.tscn" id="1_sw4nl"]
 [ext_resource type="PackedScene" uid="uid://q2rwurhhtwfe" path="res://Scenes/NPC/TestNPC.tscn" id="2_462pa"]
+[ext_resource type="PackedScene" path="res://Cutscenes/cutscene_demo_trigger.tscn" id="3_cutdemo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qkuwt"]
 size = Vector3(2.0234764, 1.4994507, 2.039287)
@@ -31,9 +32,6 @@ mesh = SubResource("BoxMesh_205hh")
 [node name="Player" parent="." unique_id=847341726 instance=ExtResource("1_sw4nl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9829674, 1.737606, 0)
 
-[node name="SeeCast" parent="Player/CameraPivot/SpringArm3D/Camera3D" parent_id_path=PackedInt32Array(847341726, 1443013244) index="2" unique_id=186597117]
-transform = Transform3D(0.9979391, 0.2580439, -0.04710644, -0.043619383, 5.9167457, -1.6249488e-10, 0.04706161, 0.012169043, 0.9988897, 0.0008648634, 0.1395899, -0.7003467)
-
 [node name="cube" type="StaticBody3D" parent="." unique_id=941369130]
 transform = Transform3D(10, 0, 0, 0, 5, 0, 0, 0, 10, -6.0281034, 2.7820358, 5.808198)
 
@@ -56,5 +54,8 @@ environment = SubResource("Environment_205hh")
 [node name="NPC" parent="." unique_id=717504656 instance=ExtResource("2_462pa")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 2, -5)
 prompt_message = "Взаимодействовать с НТЛ ?"
+
+[node name="CutsceneDemoTrigger" parent="." instance=ExtResource("3_cutdemo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, -5)
 
 [editable path="Player"]

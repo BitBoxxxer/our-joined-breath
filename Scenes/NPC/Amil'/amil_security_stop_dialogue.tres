@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="DialogueTree" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://Scripts/Dialogue/DialogueTree.gd" id="1_tree"]
+[ext_resource type="Script" path="res://Scripts/Dialogue/DialogueLine.gd" id="2_line"]
+
+[sub_resource type="Resource" id="Line_stop"]
+script = ExtResource("2_line")
+type = 0
+speaker = "Амиль"
+text = "Стоп. Незапланированное перемещение вне разрешённых маршрутов."
+condition = ""
+set_flags = {}
+
+[sub_resource type="Resource" id="Line_player_rush"]
+script = ExtResource("2_line")
+type = 0
+speaker = ""
+text = "Амиль, пожалуйста, не сейчас! Там появилась новая игра — про рыцаря!"
+condition = ""
+set_flags = {}
+
+[sub_resource type="Resource" id="Line_amil_warn"]
+script = ExtResource("2_line")
+type = 0
+speaker = "Амиль"
+text = "Новые процессы нестабильны первые циклы. Вмешательство до инициализации запрещено протоколом."
+condition = ""
+set_flags = {}
+
+[sub_resource type="Resource" id="Line_amil_let_go"]
+script = ExtResource("2_line")
+type = 0
+speaker = "Амиль"
+text = "...Однако прямого запрета на наблюдение не зафиксировано. Иди. Но без вмешательства."
+condition = ""
+set_flags = {"amil_allowed_knight_visit": true}
+
+[resource]
+script = ExtResource("1_tree")
+lines = [SubResource("Line_stop"), SubResource("Line_player_rush"), SubResource("Line_amil_warn"), SubResource("Line_amil_let_go")]

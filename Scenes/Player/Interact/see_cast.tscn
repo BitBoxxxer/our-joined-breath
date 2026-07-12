@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bwt0tyf3s3yry" path="res://_Ress/Sprites/icon.svg" id="4_wt7xd"]
 [ext_resource type="Script" uid="uid://1x84p2lkga1o" path="res://Scripts/Dialogue/dialogue_ui.gd" id="5_xngue"]
 [ext_resource type="Script" uid="uid://uyq055dkqqr2" path="res://Scripts/Items/inventory_ui.gd" id="6_invui"]
+[ext_resource type="Script" path="res://Scripts/UI/crosshair.gd" id="7_crshr"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_exv3e"]
 diffuse_texture = ExtResource("4_wt7xd")
@@ -32,6 +33,9 @@ text = "Press \"E\" to interact"
 position = Vector2(960, 511.99997)
 scale = Vector2(-0.332537, 0.34292704)
 texture = SubResource("CanvasTexture_exv3e")
+
+[node name="Crosshair" type="Control" parent="CanvasLayer" unique_id=811900200]
+script = ExtResource("7_crshr")
 
 [node name="DialogueUI" type="Control" parent="CanvasLayer" unique_id=1913475484]
 layout_mode = 3

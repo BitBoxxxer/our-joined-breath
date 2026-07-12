@@ -13,7 +13,7 @@ var current_speed : float
 
 
 func _physics_process(delta: float) -> void:
-	if DialogueManager.is_active:
+	if DialogueManager.is_active or CutsceneManager.is_active:
 		return
 	# Гравитация
 	if not is_on_floor():

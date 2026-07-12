@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://Scripts/Cutscene/CutsceneTrigger.gd" id="1_trig"]
+[ext_resource type="Resource" path="res://Cutscenes/demo_amil_cutscene.tres" id="2_seq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_trig"]
+size = Vector3(1, 2, 1)
+
+[node name="CutsceneDemoTrigger" type="StaticBody3D"]
+script = ExtResource("1_trig")
+sequence = ExtResource("2_seq")
+one_shot = true
+prompt_message = "Начать кат-сцену (демо)"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_trig")

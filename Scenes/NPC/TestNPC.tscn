@@ -4,6 +4,11 @@
 [ext_resource type="Script" uid="uid://bchmgrowfiyxc" path="res://Scripts/camera_shot.gd" id="2_uk1wc"]
 [ext_resource type="PackedScene" uid="uid://keidq8u5eslq" path="res://_Ress/Camera_shot_mrk.tscn" id="3_2j0rf"]
 [ext_resource type="Resource" path="res://Scenes/NPC/Amil'/amil_dialogue.tres" id="4_dlg"]
+[ext_resource type="Script" path="res://Scripts/Player/directional_sprite_3d.gd" id="5_dirspr"]
+[ext_resource type="Texture2D" path="res://_Ress/Sprites/Amil/amil_front.png" id="6_front"]
+[ext_resource type="Texture2D" path="res://_Ress/Sprites/Amil/amil_back.png" id="7_back"]
+[ext_resource type="Texture2D" path="res://_Ress/Sprites/Amil/amil_left.png" id="8_left"]
+[ext_resource type="Texture2D" path="res://_Ress/Sprites/Amil/amil_right.png" id="9_right"]
 
 [sub_resource type="Resource" id="Resource_2j0rf"]
 script = ExtResource("2_uk1wc")
@@ -27,11 +32,22 @@ dialogue = ExtResource("4_dlg")
 shape = SubResource("CapsuleShape3D_tuv8g")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1542532524]
+visible = false
 mesh = SubResource("CapsuleMesh_mc2ni")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1218367021]
+visible = false
 transform = Transform3D(-4.371139e-08, 0, 1, 1, -4.371139e-08, 4.371139e-08, 4.371139e-08, 1, 1.9106855e-15, 0, 0.6032729, -0.27299988)
 mesh = SubResource("PrismMesh_uk1wc")
+
+[node name="DirSprite" type="Sprite3D" parent="." unique_id=811900101]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9345, 0)
+pixel_size = 0.0021
+script = ExtResource("5_dirspr")
+texture_front = ExtResource("6_front")
+texture_back = ExtResource("7_back")
+texture_left = ExtResource("8_left")
+texture_right = ExtResource("9_right")
 
 [node name="CameraShotMrk" parent="." unique_id=257876795 instance=ExtResource("3_2j0rf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -2.4)

@@ -17,7 +17,10 @@ func start_dialogue(npc: NPC, tree: DialogueTree) -> void:
 	if is_active:
 		return
 	if tree == null or tree.lines.is_empty():
-		printerr("DialogueManager: попытка начать пустой диалог у ", npc.name)
+		var who: String = "cutscene"
+		if npc:
+			who = str(npc.name)
+		printerr("DialogueManager: попытка начать пустой диалог у ", who)
 		return
 
 	current_npc = npc

@@ -12,7 +12,7 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if DialogueManager.is_active:
+	if DialogueManager.is_active or CutsceneManager.is_active:
 		return
 	if event.is_action_pressed("toggle_inventory"):
 		visible = not visible

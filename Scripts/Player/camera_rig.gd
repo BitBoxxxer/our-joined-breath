@@ -40,7 +40,7 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if DialogueManager.is_active or is_locked:
+	if DialogueManager.is_active or CutsceneManager.is_active or is_locked:
 		return
 	if event is InputEventMouseMotion:
 		target_yaw -= event.relative.x * mouse_sensitivity
@@ -58,7 +58,7 @@ func _process(delta: float) -> void:
 	var zt := 1.0 - exp(-zoom_smoothness * delta)
 	spring_arm.spring_length = lerp(spring_arm.spring_length, target_zoom, zt)
 
-	if DialogueManager.is_active or is_locked:
+	if DialogueManager.is_active or CutsceneManager.is_active or is_locked:
 		return
 	# exp(-k*delta) даёт плавность, не зависящую от FPS — это и есть "мягкая" камера
 	var t := 1.0 - exp(-rotation_smoothness * delta)

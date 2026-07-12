@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="CutsceneSequence" load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://Scripts/Cutscene/CutsceneSequence.gd" id="1_seq"]
+[ext_resource type="Script" path="res://Scripts/Cutscene/CutsceneAction.gd" id="2_act"]
+[ext_resource type="Resource" path="res://Scenes/NPC/Amil'/amil_security_stop_dialogue.tres" id="3_dlg"]
+
+[sub_resource type="Resource" id="Action_shot_establish"]
+script = ExtResource("2_act")
+type = 0
+camera_position = Vector3(1.8, 1.4, 3)
+camera_look_at_point = Vector3(0, 1, -2)
+camera_duration = 0.01
+camera_fov = 60.0
+
+[sub_resource type="Resource" id="Action_caption_run"]
+script = ExtResource("2_act")
+type = 6
+caption_text = "Опаздываю, опаздываю, опаздываю..."
+caption_duration = 1.2
+
+[sub_resource type="Resource" id="Action_run"]
+script = ExtResource("2_act")
+type = 8
+move_target = Vector3(0, 1.0, -14)
+move_duration = 2.5
+move_is_running = true
+
+[sub_resource type="Resource" id="Action_shot_reveal"]
+script = ExtResource("2_act")
+type = 0
+camera_position = Vector3(3, 2, -14)
+camera_look_at_point = Vector3(0, 1, -18)
+camera_duration = 1.0
+camera_fov = 45.0
+
+[sub_resource type="Resource" id="Action_caption_security"]
+script = ExtResource("2_act")
+type = 6
+caption_text = "Система безопасности активирована."
+caption_duration = 1.5
+
+[sub_resource type="Resource" id="Action_dialogue"]
+script = ExtResource("2_act")
+type = 2
+dialogue = ExtResource("3_dlg")
+
+[resource]
+script = ExtResource("1_seq")
+sequence_name = "Вступление: бег по улице, встреча с Амилем"
+actions = [SubResource("Action_shot_establish"), SubResource("Action_caption_run"), SubResource("Action_run"), SubResource("Action_shot_reveal"), SubResource("Action_caption_security"), SubResource("Action_dialogue")]
+restore_control_on_finish = true
