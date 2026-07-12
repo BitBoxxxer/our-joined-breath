@@ -18,8 +18,15 @@ class_name DirectionalSprite3D
 ## зато чуть экономит производительность при большом числе NPC.
 @export var update_interval: float = 0.05
 
+## Чёрная чернильная обводка спрайта (комикс-стиль). Материал создаётся и синхронизируется
+## автоматически в этом скрипте — в редакторе ничего назначать не нужно.
+@export var use_ink_outline: bool = true
+
+const OUTLINE_SHADER := preload("res://Shaders/sprite_outline.gdshader")
+
 var facing_node: Node3D
 var _time_since_update: float = 0.0
+var _outline_material: ShaderMaterial
 
 
 func _ready() -> void:
@@ -28,12 +35,18 @@ func _ready() -> void:
 	billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
 	shaded = false
 
+	if use_ink_outline:
+		_outline_material = ShaderMaterial.new()
+		_outline_material.shader = OUTLINE_SHADER
+		material_override = _outline_material
+
 	if facing_node_path != NodePath(""):
 		facing_node = get_node_or_null(facing_node_path)
 	if facing_node == null:
 		facing_node = get_parent()
 
 	texture = texture_front
+	_sync_outline_texture(texture_front)
 
 
 func _process(delta: float) -> void:
@@ -68,3 +81,11 @@ func _update_facing_texture(cam: Camera3D) -> void:
 
 	if new_texture and texture != new_texture:
 		texture = new_texture
+		_sync_outline_texture(new_texture)
+
+
+## Sprite3D не пробрасывает свою текстуру в кастомный шейдер сам — прокидываем руками,
+## каждый раз когда текстура меняется (включая самый первый раз в _ready()).
+func _sync_outline_texture(tex: Texture2D) -> void:
+	if _outline_material and tex:
+		_outline_material.set_shader_parameter("texture_albedo", tex)

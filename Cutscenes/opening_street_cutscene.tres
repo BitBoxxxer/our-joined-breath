@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="CutsceneSequence" load_steps=8 format=3]
+[gd_resource type="Resource" script_class="CutsceneSequence" format=3 uid="uid://wvrnemqjslcs"]
 
-[ext_resource type="Script" path="res://Scripts/Cutscene/CutsceneSequence.gd" id="1_seq"]
-[ext_resource type="Script" path="res://Scripts/Cutscene/CutsceneAction.gd" id="2_act"]
-[ext_resource type="Resource" path="res://Scenes/NPC/Amil'/amil_security_stop_dialogue.tres" id="3_dlg"]
+[ext_resource type="Script" uid="uid://cxl3m0whevp1p" path="res://Scripts/Cutscene/CutsceneSequence.gd" id="1_seq"]
+[ext_resource type="Script" uid="uid://dwvbbboaltrdg" path="res://Scripts/Cutscene/CutsceneAction.gd" id="2_act"]
+[ext_resource type="Resource" uid="uid://bp3k7vm2m115f" path="res://Scenes/NPC/Amil'/amil_security_stop_dialogue.tres" id="3_dlg"]
 
 [sub_resource type="Resource" id="Action_shot_establish"]
 script = ExtResource("2_act")
@@ -21,16 +21,14 @@ caption_duration = 1.2
 [sub_resource type="Resource" id="Action_run"]
 script = ExtResource("2_act")
 type = 8
-move_target = Vector3(0, 1.0, -14)
+move_target = Vector3(0, 1, -14)
 move_duration = 2.5
-move_is_running = true
 
 [sub_resource type="Resource" id="Action_shot_reveal"]
 script = ExtResource("2_act")
 type = 0
 camera_position = Vector3(3, 2, -14)
 camera_look_at_point = Vector3(0, 1, -18)
-camera_duration = 1.0
 camera_fov = 45.0
 
 [sub_resource type="Resource" id="Action_caption_security"]
@@ -47,5 +45,4 @@ dialogue = ExtResource("3_dlg")
 [resource]
 script = ExtResource("1_seq")
 sequence_name = "Вступление: бег по улице, встреча с Амилем"
-actions = [SubResource("Action_shot_establish"), SubResource("Action_caption_run"), SubResource("Action_run"), SubResource("Action_shot_reveal"), SubResource("Action_caption_security"), SubResource("Action_dialogue")]
-restore_control_on_finish = true
+actions = Array[ExtResource("2_act")]([SubResource("Action_shot_establish"), SubResource("Action_caption_run"), SubResource("Action_run"), SubResource("Action_shot_reveal"), SubResource("Action_caption_security"), SubResource("Action_dialogue")])

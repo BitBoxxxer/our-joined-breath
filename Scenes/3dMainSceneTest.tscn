@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://bl7qvf4ce1pfs"]
 
+[ext_resource type="Script" uid="uid://dq8l2r2ytqurv" path="res://Scripts/World/3d_main_scene_test.gd" id="1_0wtar"]
 [ext_resource type="PackedScene" path="res://Items/rusty_key_pickup.tscn" id="1_6clia"]
 [ext_resource type="PackedScene" uid="uid://s2xbw7mjmiwo" path="res://Scenes/Player/player.tscn" id="1_sw4nl"]
 [ext_resource type="PackedScene" uid="uid://q2rwurhhtwfe" path="res://Scenes/NPC/TestNPC.tscn" id="2_462pa"]
 [ext_resource type="PackedScene" path="res://Cutscenes/cutscene_demo_trigger.tscn" id="3_cutdemo"]
+[ext_resource type="Script" uid="uid://d23j10kger7ge" path="res://Scripts/World/outline_generator.gd" id="5_qmqhl"]
+[ext_resource type="Material" uid="uid://d1p0ysgancogb" path="res://Shaders/mesh_outline.tres" id="6_a7m1i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qkuwt"]
 size = Vector3(2.0234764, 1.4994507, 2.039287)
@@ -15,6 +18,7 @@ size = Vector3(2.0234764, 1.4994507, 2.039287)
 [sub_resource type="Environment" id="Environment_205hh"]
 
 [node name="Test_Scene" type="Node3D" unique_id=1783875585]
+script = ExtResource("1_0wtar")
 
 [node name="RustyKeyPickup" parent="." unique_id=185775520 instance=ExtResource("1_6clia")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3005605, 1.1295509, -8.005049)
@@ -55,7 +59,13 @@ environment = SubResource("Environment_205hh")
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 2, -5)
 prompt_message = "Взаимодействовать с НТЛ ?"
 
-[node name="CutsceneDemoTrigger" parent="." instance=ExtResource("3_cutdemo")]
+[node name="CutsceneDemoTrigger" parent="." unique_id=2014145554 instance=ExtResource("3_cutdemo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, -5)
+
+[node name="OutlineGenerator" type="Node" parent="." unique_id=401925904]
+script = ExtResource("5_qmqhl")
+outline_material = ExtResource("6_a7m1i")
+target_root_path = NodePath(".")
+excluded_names = PackedStringArray()
 
 [editable path="Player"]

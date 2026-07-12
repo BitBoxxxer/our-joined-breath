@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://d1p0ysgancogb"]
+
+[ext_resource type="Shader" uid="uid://cv4fpwjr0msj2" path="res://Shaders/mesh_outline.gdshader" id="1_tnwls"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_tnwls")
+shader_parameter/outline_color = Color(0.04, 0.03, 0.07, 1)
+shader_parameter/outline_width = 0.015
